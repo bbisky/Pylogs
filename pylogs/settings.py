@@ -74,7 +74,7 @@ INSTALLED_APPS = (
 )
 VERSION = (1, 15, 'beta')	
 
-
+FORCE_SCRIPT_NAME = ""
 #FEED CONF START
 FEED_BLOG_URL_PREFIX = "http://code.google.com/p/pylogs/"  #change to your site url
 FEED_POST_AUTHOR_NAME = "Sky"
