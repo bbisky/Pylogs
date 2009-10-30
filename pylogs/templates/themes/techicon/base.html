@@ -1,0 +1,144 @@
+{% load i18n posttags menu links themes config %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{% block title %}Pylogs - logging your life.{% endblock %}</title>
+{%block meta %}
+<meta content="Pylogs,blog,博客,todo,python,Django,基于Python的博客系统" name="keywords"/>
+<meta name="description" content="Pylogs是一个由Sky独立开发的个人站点，程序基于python+django.主要目的是实现一个简单的blog系统，当然不仅仅是blgo,以后将加入更多新的功能。总之，一切由简单开始！　　
+项目地址:http://code.google.com/p/pylogs
+Simple is beautiful..."/>{%endblock%}
+<script type="text/javascript" src="{%media_url%}/js/highslide.packed.js"></script>
+<script type="text/javascript" src="{%media_url%}/js/shCore.js"></script>
+<script type="text/javascript" src="{%media_url%}/js/common.js"></script>
+<script type="text/javascript" src="{%media_url%}/js/shBrushes.js"></script>
+<link rel="stylesheet" href="{%media_url%}/css/SyntaxHighlighter.css" type="text/css" media="screen" >
+<link rel="stylesheet" href="{% theme_media_url %}/css/style.css" type="text/css" media="screen">
+<link rel="stylesheet" href="{%media_url%}/css/code.css" type="text/css" media="screen" >
+<link rel="stylesheet" href="{%media_url%}/css/highslide.css" type="text/css" media="screen">
+    <link rel="alternate" type="application/rss+xml" title="订阅 Pylogs Rss Feed" href='{% url feeds url="rss" %}'>
+    <link rel="alternate" type="application/rss+xml" title="订阅 Pylogs Atom Feed" href='{% url feeds url="atom" %}'>
+{% block script %}{% endblock %}
+</head>
+<body>
+<div id="wrapper">
+
+<div id="topbar">
+<div id="topbarright">
+    <div id="topsearch">
+    <!-- SiteSearch Google -->
+        <form method="get" style="margin:0; padding:0; margin-top:-3px;" action="http://www.google.cn/custom" target="google_window">
+        <input type="text" name="q" maxlength="255" value="Search..." id="sbi" onfocus="if (this.value == 'Search...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search...';}" class="swap_value" ></input>
+        <table border="0" style="display:none;" >
+        <tr><td nowrap="nowrap" valign="top" align="left" >
+        </td>
+        <td nowrap="nowrap">
+        <input type="hidden" name="domains" value="oteam.cn"></input>
+        </td></tr>
+        <tr>
+        <td>&nbsp;</td>
+        <td nowrap="nowrap">
+        <table >
+        <tr>
+        <td>
+        <input type="radio" name="sitesearch" value="" id="ss0"></input>
+        <label for="ss0" title="搜索网络"><font size="-1" color="black">Web</font></label></td>
+        <td>
+        <input type="radio" name="sitesearch" value="oteam.cn" checked id="ss1"></input>
+        <label for="ss1" title="搜索 oteam.cn"><font size="-1" color="black">oteam.cn</font></label></td>
+        </tr>
+        </table>
+        <input type="hidden" name="client" value="pub-6437780444414942"></input>
+        <input type="hidden" name="forid" value="1"></input>
+        <input type="hidden" name="channel" value="1877657874"></input>
+        <input type="hidden" name="ie" value="UTF-8"></input>
+        <input type="hidden" name="oe" value="UTF-8"></input>
+        <input type="hidden" name="safe" value="active"></input>
+        <input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;LH:50;LW:157;L:http://oteam.cn/media/themes/default/images/logo.gif;S:http://oteam.cn;FORID:1"></input>
+        <input type="hidden" name="hl" value="zh-CN"></input>
+        </td></tr></table>
+        </form>
+    <!-- SiteSearch Google -->
+    </div>
+</div>
+<div id="topbarleft">
+    <div id="navigation">
+        {% get_menus %}        
+    </div>
+</div>
+
+</div>
+
+<div id="header"><h1><a href='#'>Pylogs</a></h1><h2>Logging your life...</h2></div>
+{% block recent %}{% endblock %}
+<div id="main">
+    <div class="entry">
+        <!--Start of prompt-->
+        {% if msg %}
+        <div class="message">{{msg}}</div>
+        {% endif %}
+         {% if error %}
+        <div class="message error">{{error}}</div>
+        {% endif %}
+        <!--End of prompt--> 
+            {% block content %}
+            {% endblock %}		
+            	
+    </div>
+<!--start of sidebar-->
+<div id="sidebar">
+    {% block sidebar %}
+    <div id="subscribe">
+        <img src="{% theme_media_url %}/images/feed.png" style="padding-right: 10px;" alt="FEED" align="left">
+            <a href='{% url feeds url="rss" %}' title='{% trans "Subscribe to my blog using RSS" %}'><b>{% trans "Subscribe to my blog using RSS" %}</b></a>
+    </div>
+    <div id="sidebar1">
+        <ul>	
+            <li>
+            <h2>{% trans "Categories" %}</h2>
+            {% get_categories %}          
+            </li>      	
+            <li>
+            <h2>{% trans "Archives" %}</h2>
+               {% get_archivelist %}
+            </li>
+        </ul>
+    </div>
+    <div id="sidebar2">
+    <ul>
+	<li>
+        <h2>{% trans "Links" %}</h2>
+           {% get_links %}
+        </li>
+        <li>
+        <h2>Meta</h2>
+            <ul>                      
+            <li><a href="http://www.python.org" target="_blank"><img src="{% theme_media_url %}/images/python-powered.png" border="0" title="main program language is Python" alt="python"/></a></li>
+            <li><a href="http://www.djangoproject.com" target="_blank"><img src="{% theme_media_url %}/images/djangoproject.gif" border="0" title="django web framework" alt="django"/></a></li>
+            <li><a href="http://jquery.com" target="_blank"><img src="{% theme_media_url %}/images/jquery_logo.gif" title="javascript framework used jQuery" border="0" alt="jquery"/></a></li>
+            <li><a href="/admin/">{%if user.is_authenticated%}Admin{%else%}Login{%endif%}</a></li>
+                        </ul>
+        </li>
+    </ul>
+    </div>
+<div id="sidebar3"></div>
+    {% endblock %}
+</div>
+<!--end of sidebar-->
+</div>
+
+<br clear="all">
+<div id="footer">
+Powered by <a href="http://code.google.com/p/pylogs/" style="color:#ff9900; font-weight:bold;" >Pylogs</a><sup>{% get_version %}</sup>
+</div></div>
+<script language="javascript">
+window.onload = function(){
+dp.SyntaxHighlighter.BloggerMode();
+dp.SyntaxHighlighter.ClipboardSwf = '/media/js/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+}
+</script>
+
+
+</body></html>

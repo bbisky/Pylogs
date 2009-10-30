@@ -1,0 +1,135 @@
+{% load i18n posttags menu links themes config%}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">   
+    <title>{% block title %}Pylogs - logging your life.{% endblock %}</title>
+{% block meta %}
+    <meta content="Pylogs,blog,博客,todo,python,Django,基于Python的博客系统" name="keywords"/>
+<meta name="description" content="Pylogs是一个由Sky独立开发的个人站点，程序基于python+django.主要目的是实现一个简单的blog系统，当然不仅仅是blgo,以后将加入更多新的功能。总之，一切由简单开始！　　
+项目地址:http://code.google.com/p/pylogs
+Simple is beautiful..."/>
+{%endblock%}
+    <script type="text/javascript" src="{% media_url %}/js/highslide.packed.js"></script>
+    <link rel="stylesheet" href="{% theme_media_url %}/css/screen.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="{% media_url %}/css/code.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="{% media_url %}/css/highslide.css" type="text/css" media="screen">
+    <link rel="alternate" type="application/rss+xml" title="订阅 Pylogs Rss Feed" href="http://feed.feedsky.com/pylogs">
+    <link rel="alternate" type="application/rss+xml" title="订阅 Pylogs Atom Feed" href="http://feed.feedsky.com/pylogs_atom">
+    {% block script %}{% endblock %}
+  </head>
+  <body>
+    <div id="container">
+      <div id="header">
+        <h1 id="logo">
+          <a href="http://pylogs.cn/"></a>
+        </h1>
+        <div id="headmenu">
+          <div style="margin-left: 2em">
+            <ul>
+              <li class="head_mob">
+                <a href="http://code.google.com/p/pylogs/" style="color:#ff9900; font-weight:bold;">Pylogs <sup>{% get_version %}</sup></a>
+              </li>
+              <li class="head_phone">March 5,2008
+              </li>
+              <li>&nbsp;</li>
+              <li>&nbsp;</li>
+            </ul>
+	</div>
+	</div>
+	</div>
+      <div id="nav">
+        {% get_menus %}
+      </div>
+      <div id="content">
+        <div id="blogText">
+        {% block content %}
+        {% endblock %}
+        </div>
+      </div>
+      <div id="rightmenu">
+        <div class="clear"></div>
+        {% block right %}   
+        <div class="sidebar">
+          <div class="sbtop"></div>
+          <div class="sbinfo">
+            <h3>
+              {% trans "Categories" %}
+            </h3>            
+              <div class="sbinner">
+                {% get_categories %}                
+                
+              </div>         
+          </div>
+          <div class="sbbottom"></div>
+        </div>
+        
+        <div class="sidebar">
+          <div class="sbtop"></div>
+          <div class="sbinfo">
+            <h3>
+              {% trans "Archives" %}
+            </h3>            
+              <div class="sbinner">
+                {% get_archivelist %}
+              </div>         
+          </div>
+          <div class="sbbottom"></div>
+        </div>
+        
+        <div class="sidebar">
+          <div class="sbtop"></div>
+          <div class="sbinfo">
+            <h3>
+               {% trans "Links" %}
+            </h3>            
+              <div class="sbinner">
+                {% get_links %}
+              </div>         
+          </div>
+          <div class="sbbottom"></div>
+        </div>
+        
+                
+        {% endblock %}
+        
+        <div class="clear"></div>
+        <div class="sidebar">
+          <div class="sbtop"></div>
+          <div class="sbinfo">
+            <h3>
+               {% trans "Syndication" %}
+            </h3>
+            <div class="sbinner">
+            <a href='{% url feeds url="rss" %}' rel="noindex,nofollow" ><img src="{% theme_media_url %}/images/rss2.gif" border="0"></a>&nbsp;
+            <a href='{% url feeds url="atom" %}' rel="noindex,nofollow"><img src="{% theme_media_url %}/images/atom1.gif" border="0"></a><br/>
+            </div>
+          </div>
+          <div class="sbbottom"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="clear"></div>
+        <div class="clear"></div>
+      </div>
+      <div id="footer">
+        <div id="footmenu">
+          <ul>
+            <li>
+              <a href="http://code.google.com/p/pylogs/"> {% trans "Pylogs Project" %}</a>
+            </li>           
+            <li class="last">
+              <a href="mailto:denghaibo+pylogs@gmail.com"> {% trans "Contact Me" %}</a>
+            </li>
+          </ul>
+        </div>
+        <div id="copyright">
+         Powered by  <a href="http://code.google.com/p/pylogs/">Pylogs</a> <sup style="color:#f0f;">{% get_version %}</sup>.<br>
+          Copyright &copy; 2008 Sky<br>          
+          All rights reserved.
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </body>
+</html>
+

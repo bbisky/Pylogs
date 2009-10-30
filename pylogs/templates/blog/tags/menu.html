@@ -1,0 +1,8 @@
+{%load i18n%}<ul id="menu">
+    <li class="page_item"><a href="/">{%trans "Home"%}</a></li>
+    <li class="page_item"><a href="{%url todo%}">{%trans "Todo"%}</a></li>
+    <li class="page_item"><a href="{%url tags%}">{%trans "Tags"%}</a></li>
+    {% for menu in menus %}
+    <li class="page_item"><a href="{{menu.get_absolute_url}}">{{menu.title|safe}}</a></li>
+    {% endfor %}
+</ul>

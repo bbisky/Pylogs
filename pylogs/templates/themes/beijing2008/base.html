@@ -1,0 +1,119 @@
+{% load i18n posttags menu links themes config %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN" dir="ltr">
+<head>
+<title>{% block title %}Pylogs - logging your life.{% endblock %}</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{%block meta %}
+<meta content="Pylogs,blog,博客,todo,python,Django,基于Python的博客系统" name="keywords"/>
+<meta name="description" content="Pylogs是一个由Sky独立开发的个人站点，程序基于python+django.主要目的是实现一个简单的blog系统，当然不仅仅是blgo,以后将加入更多新的功能。总之，一切由简单开始！　　
+项目地址:http://code.google.com/p/pylogs
+Simple is beautiful..."/>{%endblock%}
+<meta content="MSHTML 6.00.6001.18063" name="GENERATOR" />
+<meta content="Pylogs 1.12" name="generator" />
+<link rel="stylesheet" href="{%theme_media_url%}/css/style.css" type="text/css" media="screen"/>
+<link rel="alternate" type="application/rss+xml" title="订阅 Pylogs Rss Feed" href='{% url feeds url="rss" %}'/>
+<link rel="alternate" type="application/rss+xml" title="订阅 Pylogs Atom Feed" href='{% url feeds url="atom" %}'/>
+<script type="text/javascript" src="{%media_url%}/js/highslide.packed.js"></script>
+<script type="text/javascript" src="{%media_url%}/js/shCore.js"></script>
+<script type="text/javascript" src="{%media_url%}/js/common.js"></script>
+<script type="text/javascript" src="{%media_url%}/js/shBrushes.js"></script>
+<link rel="stylesheet" href="{%media_url%}/css/SyntaxHighlighter.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="{%media_url%}/css/code.css" type="text/css" media="screen" />
+<link rel="stylesheet" href="{%media_url%}/css/highslide.css" type="text/css" media="screen"/>
+{% block script %}{% endblock %}
+</head>
+<body>
+<div id="header">
+<div id="ing">
+<div id="ing_info">
+<div id="home"><a href="/" title="Pylogs. logging your life...">
+<img alt="logo" src="{%theme_media_url%}/images/logo.gif" /></a></div>
+</div> 
+    <!-- SiteSearch Google -->
+        <form method="get" id="searchform" action="http://www.google.cn/custom" target="google_window">
+        <input type="text" name="q" maxlength="255" value="Search..." id="sbi" onfocus="if (this.value == 'Search...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search...';}" class="swap_value" ></input>
+        <input id="searchsubmit" type="submit" value="Search" />
+        <table border="0" >
+        <tr><td nowrap="nowrap" valign="top" align="left" >
+        </td>
+        <td nowrap="nowrap">
+        <input type="hidden" name="domains" value="oteam.cn"></input>
+        </td></tr>
+        <tr>
+        <td>&nbsp;</td>
+        <td nowrap="nowrap">
+        <table >
+        <tr>
+        <td>
+        <input type="radio" name="sitesearch" value="" id="ss0"></input>
+        <label for="ss0" title="搜索网络"><font size="-1" color="black">Web</font></label></td>
+        <td>
+        <input type="radio" name="sitesearch" value="oteam.cn" checked id="ss1"></input>
+        <label for="ss1" title="搜索 oteam.cn"><font size="-1" color="black">oteam.cn</font></label></td>
+        </tr>
+        </table>
+        <input type="hidden" name="client" value="pub-6437780444414942"></input>
+        <input type="hidden" name="forid" value="1"></input>
+        <input type="hidden" name="channel" value="1877657874"></input>
+        <input type="hidden" name="ie" value="UTF-8"></input>
+        <input type="hidden" name="oe" value="UTF-8"></input>
+        <input type="hidden" name="safe" value="active"></input>
+        <input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;LH:50;LW:157;L:http://oteam.cn/media/themes/default/images/logo.gif;S:http://oteam.cn;FORID:1"></input>
+        <input type="hidden" name="hl" value="zh-CN"></input>
+        </td></tr></table>
+        </form>    <!-- SiteSearch Google -->
+	</div>
+</div></div>
+<div id="page">
+<div id="content">
+        {% if msg %}
+        <div class="message">{{msg}}</div>
+        {% endif %}
+         {% if error %}
+        <div class="message error">{{error}}</div>
+        {% endif %}       
+{% block content %}{% endblock %}
+</div><!-- content -->
+<div id="sidebar">{% block sidebar %}
+<div id="sidebar_1">
+<li class="feed">
+<h2>{%trans "Feeds"%}</h2>
+<ul>
+  <li><a href="{% url feeds url="rss" %}">RSS feed</a>  </li>
+  <li><a href="{% url feeds url="atom" %}">Atom feed</a></li></ul>
+</li>
+<li class="pagenav">
+<h2>{%trans "Menu"%}</h2>
+    {% get_menus %}      
+</li>
+<li class="newpost">
+<h2>{% trans "Latest Posts" %}</h2>
+    {% get_latest_posts %}
+</li>
+<li class="linkcat" id="linkcat-2">
+<h2>{% trans "Links" %}</h2>
+    {% get_links %}
+</li></div>
+<div id="sidebar_2">
+<li class="categories">
+<h2>{% trans "Categories" %}</h2>
+    {% get_categories %}
+</li>
+<li class="archives">
+<h2>{% trans "Archives" %}</h2>
+    {% get_archivelist %}
+</li></div></div><!-- sidebar -->
+{%endblock%}</div><!-- page -->
+<div id="footer">
+<div class="ftr">Powered by <a title="pylogs" 
+href="http://pylogs.googlecode.com/">Pylogs{% get_version %}</a> , BeiJing2008 Theme produced by 
+<a title="Sky" href="http://oteam.cn/">Sky</a> @2008</div></div><!-- footer -->
+<script language="javascript">
+window.onload = function(){
+dp.SyntaxHighlighter.BloggerMode();
+dp.SyntaxHighlighter.ClipboardSwf = '/media/js/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+}
+</script>
+</body></html>

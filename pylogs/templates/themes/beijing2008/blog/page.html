@@ -1,0 +1,51 @@
+{% load i18n themes posttags %}
+{% theme_extends "base.html" %}
+{% block title %}{{post.title}} - {{ block.super }} {% endblock %}
+{% block meta %}<meta content="{{post.title}},Pylogs,基于Python的博客系统" name="keywords"/>
+<meta name="description" content="{{post.content|striptags|truncatewords_html:30}}"/>{%endblock%}
+{% block content %}
+<!--Start of content-->
+<div class="content">
+<div class="post" id="post-11">
+<h1><a href="{{post.get_absolute_url}}" >{{post.title}}</a></h1></div>
+<div class="entry">{%trans "Categories" %}: {% for cat in post.category.all %}<a href="{{cat.get_absolute_url}}">{{cat.name}}</a>{% if not forloop.last %}, {%endif%}{%endfor%}
+|<span class="comments"><a href="{{post.get_absolute_url}}#newcomments">{{post.comment_count}}{% trans "Comments" %} »</a></span> | {{post.hits}} {% trans "Views" %}</div>
+{% if post.tags.all %}
+<div class="entry">
+    {%trans "Tags" %}:
+    {% for tag in post.tags.all %}
+    <a href="{{tag.get_absolute_url}}">{{tag.name}}</a>{% if not forloop.last %},{% endif %}
+    {% endfor %}</div>
+    {% endif %}
+<div class="date">{% trans "Pubdate" %}: <span class="postdate">{{post.pubdate|date:"Y-m-d H:i:s"}}</span></div>
+<div class="mypost">
+{{post.content|safe}}
+</div>
+<div class="tag_tb">
+     <h2>相关文章</h2>
+      {%get_tagged_posts post.tags.all 5 post.id%}
+</div></div>
+
+<div id="comments">
+     <div class="content" style="background:none;">
+	<h1><a name="comments"></a>{{post.comment_count}}{%trans "Comments" %}</h1>
+	<ol class="commentlist">
+          {% for cmt in post.get_comments%}
+           <li class="{% cycle alt,alt2 %}">
+           {% if cmt.comment_author_url %}<a href="{{cmt.comment_author_url}}" target="_blank">{{cmt.comment_author}}</a>{% else %}{{cmt.comment_author}}{% endif %}:
+           <br/>
+           <small class="commentmetadata">{% trans "Post at" %} :<a href="#">{{cmt.comment_date|date:"Y-m-d H:i:s"}}</a></small>
+           <p>{{cmt.comment_content|linebreaks }}</p>        
+           </li>
+        {% endfor %}
+	</ol>
+ {% ifequal "open" post.comment_status %}
+        {% include "blog/comment_form.html" %}
+{% endifequal %} 
+</div>
+</div>
+ 
+
+    <!--End of comments-->
+{% endblock %}
+<!--End of content-->

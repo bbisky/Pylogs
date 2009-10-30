@@ -1,0 +1,13 @@
+{% if cats %}
+<ul class="innerul">
+{% for cat in cats %}
+    <li><a href="{{cat.get_absolute_url}}">{{cat.name}}</a></li>
+{% endfor %}
+</ul>
+{% else %}
+{% load i18n %} 
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% trans "No Category Now" %}!
+{% endif %}

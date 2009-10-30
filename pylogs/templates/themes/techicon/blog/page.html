@@ -1,0 +1,50 @@
+{% load i18n themes %}
+{% theme_extends "base.html" %}
+{% block title %}{{post.title}} - {{ block.super }} {% endblock %}
+{% block meta %}<meta content="{{post.title}},Pylogs,基于Python的博客系统" name="keywords"/>
+<meta name="description" content="{{post.content|striptags|truncatewords_html:30}}"/>{%endblock%}
+<!--Start of content-->
+{% block content %}
+<div class="post">
+      <h2>
+        {% autoescape off %}<a href="{{post.get_page_url}}">{{post.title}}</a>{% endautoescape %}
+      </h2>
+    <small>{% trans "Pubdate" %}:<abbr title="post time">{{post.pubdate|date:"Y-m-d H:i:s"}}</abbr> | {{post.hits}} {% trans "Views" %}
+     {% if post.tags.all %}
+    <!--tags-->
+    &nbsp;&nbsp;<br/>{%trans "Tags" %}:
+    {% for tag in post.tags.all %}
+    <a href="{{tag.get_absolute_url}}">{{tag.name}}</a>{% if not forloop.last %},{% endif %}
+    {% endfor %}
+    {% endif %}
+    </small>
+    <br><br>
+    
+      <div class="postbg">
+            {{post.content|safe|linebreaks}}     
+      </div>
+    <br>      
+   </div>
+<!--Start of comments-->
+{% ifnotequal 0 post.comment_count %}   
+    <!--Start of comments-->    
+    <div id="comments">
+        <span class="commenttitle"><a name="comments"></a>{% trans "Comments" %}</span>
+        <ul>
+        {% for cmt in post.get_comments%}
+           <li class="{% cycle alt1,alt2,alt3 %}">
+            <strong>{% if cmt.comment_author_url %}<a href="{{cmt.comment_author_url}}" target="_blank">{{cmt.comment_author}}</a>{% else %}{{cmt.comment_author}}{% endif %}</strong>
+            <span class="byline">{% trans "Post at" %} {{cmt.comment_date|date:"Y-m-d H:i:s"}}</span>
+           {{cmt.comment_content|linebreaks }}             
+           </li>
+        {% endfor %}
+        </ul>
+    </div>
+ {% endifnotequal %}    
+    {% ifequal "open" post.comment_status %}
+        {% include "blog/comment_form.html" %}
+    {% endifequal %} 
+    <!--End of comments-->
+{% endblock %}
+<!--End of content-->
+

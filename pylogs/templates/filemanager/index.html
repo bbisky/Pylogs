@@ -1,0 +1,87 @@
+{% load i18n %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="zh-cn">
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="Content-Language" content="UTF-8" />
+    <title>Django File Manager</title>    
+     <link rel="stylesheet" rev="stylesheet" href="/media/css/browser.css" type="text/css" media="all" />
+     <script language="javascript">
+        function prevImg(url)
+        {
+            if(top == self )
+                window.open(url);
+            else
+                window.parent.DFM.prev(url);    
+        }
+     </script>
+</head>
+<body>
+       <h1 style="display:none" id="head">{% trans "Django File Manager"%} <sup>v0.1</sup></h1>
+       <div>
+    <strong>{% trans "Upload a file" %}</strong><br/>
+    {% if msg %}
+    <div class="message">{{msg}}</div>
+    {% endif %}{% trans "Allow upload types" %}:"
+    {% for type in allow_types %}
+         {{type}}{% if not forloop.last %},{% endif %}
+    {% endfor %}"<br/>
+    <form method="post" enctype="multipart/form-data">
+    <input type="file" name="up_file" /> <input type="submit" value='{% trans "Upload" %}'/>
+    </form>
+    <form method="post">
+        <input type="text" class="text" name="newdir" /> <input type="submit" value='{% trans "Create Directory"%}'/>
+    </form>
+</div>
+    <div class="browser" id="content"> 
+  <table id="dirlist" class="listing">
+   <thead>
+    <tr>
+        <th class="name asc">
+         <a href="#" title="Sort by name (descending)">{% trans "Name"%}</a>
+        </th>
+        
+        <th class="size">
+         <a href="#" title="Sort by size">{% trans "Size"%}</a>
+        </th>
+        
+            <th class="rev">Rev</th>
+        <th class="date">
+         <a href="#" title="Sort by date">{% trans "Last Modified"%}</a>
+        </th>
+        
+            <th class="change"></th>
+    </tr>
+   </thead>
+   <tbody>    
+    {% if is_showup %}
+     <tr class="even">
+      <td colspan="5" class="name">
+       <a href="../" title="Parent Directory" class="parent">../</a>
+      </td>
+     </tr>
+    {% endif %}    
+     {% for d in dirs %}    
+     <tr class="{% cycle odd,even %}">
+      <td class="name">
+        <a href="{% if d.is_dir %}{{d.url}}{% else %}javascript:void 0;{% endif %}" {% if not d.is_dir %}onclick="prevImg('{{d.url}}')"{% endif %} title='{% trans "View File"%}' class="{% if d.is_dir %}dir{% else %}file{% endif %}">{{d.name}}</a>
+      </td>
+      <td class="size">{% if not d.is_dir %}{{d.size|filesizeformat }}{% endif %}</td>
+      <td class="rev"><a href="/log/django/trunk/INSTALL" title="View Revision Log">7294</a></td>
+      <td class="age"><span title='before:{{d.lastmodified|timesince }}'>{{d.lastmodified|date:"Y-m-d H:i:s"}}</span></td>
+      <td class="change">
+            {{d.physical}}      
+      </td>
+     </tr>       
+    {% endfor %}    
+   </tbody>
+  </table>
+  <table summary="Revision info" id="info"><tbody><tr>
+    <td colspan="2">
+    <span class="copyinfo">{% trans "Django File Manager"%} from Sky. ver: 0.1beta</span>/{{current_location}}  
+    </td></tr>
+  </tbody></table>
+</div>
+</body>
+</html>

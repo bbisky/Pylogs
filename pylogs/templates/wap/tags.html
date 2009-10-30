@@ -1,0 +1,10 @@
+{% extends "wap/base.html" %}{% load i18n %}
+{% block title %}{%trans "Tags" %} - {{ block.super }} {% endblock %}
+{% block content %}
+<strong>{%trans "Tags" %}</strong>
+<br/>
+{% for tag in tags %}
+    <a href="{%url wap_pre%}{{tag.get_absolute_url}}" class="tags font_{{tag.reference_count}}">{{tag.name}}</a> 
+    {% endfor %}
+
+{% endblock %}

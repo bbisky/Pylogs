@@ -1,0 +1,13 @@
+{% if archive_months %}
+<ul class="innerul">
+{% for mon in archive_months %}
+    <li><a href="{{mon.link}}">{{mon.title}}</a></li>
+{% endfor %}
+</ul>
+{% else %}
+{% load i18n %} 
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% trans "No Archive Now" %}!
+{% endif %}

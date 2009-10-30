@@ -1,0 +1,10 @@
+{% extends "wap/base.html" %}
+{% load i18n %}{% block title %}{{pagetitle}} - {{ block.super }} {% endblock %}
+{% block content %}
+{% for post in posts %}    
+        <a href="{%url wap_pre%}{{ post.get_absolute_url }}" >{{post.title}}</a>
+        <br/>     
+    {% endfor %}
+       {% if prev_page %}<a href="?page={{prev_page}}"> {% trans "Prev" %}</a>{% endif %}
+    {% if next_page%}<a href="?page={{next_page}}">{% trans "Next" %}</a>{% endif %}
+{% endblock %}

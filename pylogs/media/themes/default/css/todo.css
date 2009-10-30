@@ -1,0 +1,83 @@
+input{background:none;
+color:#333333;
+font-family:verdana,arial,sans-serif;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:normal;
+font-variant:normal;
+font-weight:normal;
+line-height:normal;
+margin:1px 0pt;
+padding:2px 2px 3px;
+width:auto;}
+label{width:auto; display:block}
+#project_type{display:inline}
+.entry{background-color:#fff; width:100%;}
+#sidebar{display:none;}
+.div_todo_projects{border-bottom:5px solid #fff;}
+.div_todo_projects h2{color:#63c; font-weight:bold;}
+.div_todo_projects h2.completed {color:#77B300; cursor:pointer;}
+.div_todo_projects a.a_add_task{background:url(../../../images/plus_green.gif) no-repeat left center; padding-left:20px;}
+.div_todo_projects .todo_project{list-style:none; margin:0;}
+.div_todo_projects .todo_project li{padding:0;list-style:none;background:url(../../../images/p.gif) no-repeat left top; padding-left:2em; font-size:1.2em; font-weight:bold;
+border-bottom:1px dashed #737373; margin-bottom:1em; color:#003366; padding-bottom:1em;}
+.div_todo_projects .todo_project li.li_done{color:#999;}
+.div_todo_projects li.li_add_project{font-size:9pt; font-weight:normal;background:none;}
+.div_todo_projects .todo_project li span.small{font-size:9pt; color:#737373; font-weight:normal;}
+
+.div_todo_projects ul.todo_tasks {list-style:none; margin:0; padding:0;}
+.div_todo_projects ul.todo_tasks li{border:0;list-style:none; background:none;font-size:9pt; font-weight:normal; padding:0; margin:0; line-height:2em;}
+.div_todo_projects a.project_type{background-color:#F7F7F7;
+border:medium none;
+color:#003399;
+font-size:10px;
+padding:2px 3px;
+text-decoration:none;}
+.div_todo_projects a.project_type:hover{background-color:#FFFFFF;
+border-bottom:2px solid #577DE7;
+color:#577DE7;
+font-size:10px;
+text-decoration:none;}
+
+.div_todo_projects a.task_delete{background-color:#F7F7F7;border:medium none;color:#FF3300;font-size:10px;padding:2px 3px;text-decoration:none;}
+.div_todo_projects a.task_delete:hover{color:#036;text-decoration:underline;}
+.div_todo_projects ul.todo_tasks a.task_undone{background-color:#F7F7F7;
+border:medium none;
+color:#009933;
+font-size:10px;
+padding:2px 3px;
+text-decoration:none;}
+.div_todo_projects ul.todo_tasks a.task_undone:hover{background-color:#FFFFFF;
+border-bottom:2px solid #577DE7;
+color:#577DE7;
+font-size:10px;
+text-decoration:none;}
+
+.div_todo_projects input.text {background-color:#F7F7F7;
+border-color:#999999 rgb(204, 204, 204) rgb(204, 204, 204) rgb(153, 153, 153);
+border-style:solid;
+border-width:1px;
+color:#333333;
+font-family:"Courier New",Courier,Hei,mono;
+font-size:13px;
+padding:2px;
+width:260px;}
+.div_todo_projects input.text:focus{
+font-family: "Courier New", Courier, Hei, mono;
+font-size: 13px;
+width: 300px;
+background-color: #FFF;
+color: #000;
+border-style: solid;
+border-width: 1px;
+padding: 2px;
+border-top-color: #3C0;
+border-left-color: #3C0;
+border-right-color: #3C0;
+border-bottom-color: #3C0;
+}
+.div_todo_projects input.required {background-color:#ff0;
+border-color:#f00;
+}
+.div_todo_projects input.addbtn{vertical-align:middle; border:none;}
+#div_completed{display:none}

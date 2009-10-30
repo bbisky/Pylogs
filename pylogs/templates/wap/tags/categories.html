@@ -1,0 +1,4 @@
+{% for cat in cats %}
+<a href="{%url wap_pre%}{{cat.get_absolute_url}}">{{cat.name}}</a>{% if not forloop.last%} | {%endif%}
+{% endfor %}
+

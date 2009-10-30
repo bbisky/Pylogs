@@ -1,0 +1,378 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Pylogs 1.12\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-08-12 14:09+0800\n"
+"PO-Revision-Date: 2008-10-03 23:58+0800\n"
+"Last-Translator: Sky <denghaibo@gmail.com>\n"
+"Language-Team: Sky <denghaibo@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+msgid "Pylogs: Latest Posts"
+msgstr "Pylogs:最新文章"
+
+msgid "logging your life..."
+msgstr "logging your life..."
+
+msgid "Post"
+msgstr "文章"
+
+msgid "Page"
+msgstr "页面"
+
+msgid "Published"
+msgstr "已发布"
+
+msgid "Draft"
+msgstr "草稿"
+
+msgid "Private"
+msgstr "私人"
+
+msgid "UnApproved"
+msgstr "未审核"
+
+msgid "Approved"
+msgstr "已审核"
+
+msgid "Spam"
+msgstr "垃圾"
+
+msgid "Allow Comments"
+msgstr "允许评论"
+
+msgid "Disallow Comments"
+msgstr "不允许评论"
+
+msgid "Allow Register Comments"
+msgstr "只允许注册用户评论"
+
+msgid "No Need Approve"
+msgstr "评论不需审批"
+
+msgid "Name"
+msgstr "名称"
+
+msgid "Slug"
+msgstr "简称"
+
+msgid "Use as url"
+msgstr "作为链接使用"
+
+msgid "Reference count"
+msgstr "引用次数"
+
+msgid "Tag"
+msgstr "标签"
+
+msgid "Tags"
+msgstr "标签"
+
+msgid "Description"
+msgstr "描述"
+
+msgid "English name"
+msgstr "英文名"
+
+msgid "Category"
+msgstr "分类"
+
+msgid "Categories"
+msgstr "分类"
+
+msgid "Title"
+msgstr "标题"
+
+msgid "Content"
+msgstr "内容"
+
+msgid "Post name"
+msgstr "文章缩略名"
+
+msgid "Post type"
+msgstr "文章类别"
+
+msgid "Post status"
+msgstr "文章状态"
+
+msgid "Parent page"
+msgstr "上级页面"
+
+msgid "Pubdate"
+msgstr "发表时间"
+
+msgid "Hits"
+msgstr "点击"
+
+msgid "Menu order"
+msgstr "菜单排序"
+
+msgid "Comment status"
+msgstr "评论状态"
+
+msgid "Comment count"
+msgstr "评论数"
+
+msgid "Post categories"
+msgstr "文章类别"
+
+msgid "Posts"
+msgstr "文章"
+
+msgid "Author"
+msgstr "作者"
+
+msgid "Email"
+msgstr "Email"
+
+msgid "URL"
+msgstr "URL"
+
+msgid "IP"
+msgstr "IP"
+
+msgid "Approve status"
+msgstr "审核状态"
+
+msgid "User agent info"
+msgstr "用户浏览器信息"
+
+msgid "UserId"
+msgstr "用户ID"
+
+msgid "Comment"
+msgstr "评论"
+
+msgid "Comments"
+msgstr "评论"
+
+msgid "Image"
+msgstr "图片"
+
+msgid "Order"
+msgstr "排序"
+
+msgid "Minimal at front"
+msgstr "值小的靠前"
+
+msgid "Link"
+msgstr "链接"
+
+msgid "Links"
+msgstr "链接"
+
+msgid "Home"
+msgstr "首页"
+
+msgid "The confirmation code you entered was incorrect!"
+msgstr "您输入的验证码不正确！"
+
+msgid "Comment post successful!"
+msgstr "评论发表成功，可能需要等待管理员审核！"
+
+msgid "File type is not allowed!"
+msgstr "不允许的文件类型！"
+
+#, python-format
+msgid "Upload successful,filename is %s"
+msgstr "上传成功，文件名为 %s"
+
+msgid "Create directory successful!"
+msgstr "创建目录成功"
+
+msgid "Sorry,create directory failed!"
+msgstr "对不起，创建目录失败！"
+
+msgid "Pylogs site admin"
+msgstr "Pylogs 站点管理"
+
+msgid "Pylogs administration"
+msgstr "Pylogs管理"
+
+msgid "Please correct the errors below"
+msgstr "请纠正以下错误"
+
+msgid "Leave You Comment"
+msgstr "评论这篇文章"
+
+msgid "Submit Comment"
+msgstr "发表评论"
+
+msgid "No Archive Now"
+msgstr "暂时没有存档"
+
+msgid "No Category Now"
+msgstr "暂时没有分类"
+
+msgid "No Links Now"
+msgstr "暂时没有链接"
+
+msgid "Todo"
+msgstr "Todo"
+
+msgid "No post now"
+msgstr "暂时没有文章"
+
+msgid "Django File Manager"
+msgstr "DFM文件管理员"
+
+msgid "Upload a file"
+msgstr "上传文件"
+
+msgid "Allow upload types"
+msgstr "允许上传文件类型"
+
+msgid "Upload"
+msgstr "上传"
+
+msgid "Create Directory"
+msgstr "创建目录"
+
+msgid "Size"
+msgstr "大小"
+
+msgid "Last Modified"
+msgstr "最后修改"
+
+msgid "View File"
+msgstr "查看文件"
+
+msgid "Feeds"
+msgstr "Feeds"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Latest Posts"
+msgstr "最新文章"
+
+msgid "Archives"
+msgstr "存档"
+
+msgid "Views"
+msgstr "阅读"
+
+msgid "Prev"
+msgstr "上一页"
+
+msgid "Next"
+msgstr "下一页"
+
+msgid "Post at"
+msgstr "发表于"
+
+msgid "Syndication"
+msgstr "聚合"
+
+msgid "Pylogs Project"
+msgstr "Pylogs 项目"
+
+msgid "Contact Me"
+msgstr "联系我"
+
+msgid "Subscribe to my blog using RSS"
+msgstr "通过RSS订阅本站更新"
+
+msgid "Latest Comments"
+msgstr "最新评论"
+
+msgid "Popular Posts"
+msgstr "热门文章"
+
+msgid "Projects in progress"
+msgstr "进行中的项目"
+
+msgid "Created at"
+msgstr "创建于"
+
+msgid "Public Project"
+msgstr "公共项目"
+
+msgid "Private Project"
+msgstr "私有项目"
+
+msgid "This task is completed."
+msgstr "这个任务已完成"
+
+msgid "Priority"
+msgstr "优先级"
+
+msgid "Add New Task"
+msgstr "添加新任务"
+
+msgid "low"
+msgstr "低"
+
+msgid "medium"
+msgstr "中"
+
+msgid "high"
+msgstr "高"
+
+msgid "Add New Project"
+msgstr "添加新项目"
+
+msgid "Completed Projects"
+msgstr "完成的项目"
+
+msgid "No project is completed!"
+msgstr "没有已完成的项目"
+
+msgid "Project Name"
+msgstr "项目名称"
+
+msgid "Created Date"
+msgstr "建立日期"
+
+msgid "LastUpdated Date"
+msgstr "最后更新日期"
+
+msgid "Project type"
+msgstr "项目类别"
+
+msgid "Project Description"
+msgstr "项目描述"
+
+msgid "Project task count"
+msgstr "项目任务数"
+
+msgid "Completed task count"
+msgstr "完成的任务数"
+
+msgid "Project slug"
+msgstr "项目别名"
+
+msgid "Todo Project"
+msgstr "Todo项目"
+
+msgid "Todo Projects"
+msgstr "Todo项目"
+
+msgid "Task Name"
+msgstr "项目名称"
+
+msgid "Task Project"
+msgstr "任务所在项目"
+
+msgid "Task Priority"
+msgstr "任务优先级"
+
+msgid "Is task completed"
+msgstr "任务完成状态"
+
+msgid "Todo Task"
+msgstr "Todo任务"
+
+msgid "Todo Tasks"
+msgstr "Todo任务"
+

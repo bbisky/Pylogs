@@ -1,0 +1,40 @@
+{% if form %}{% load i18n %} 
+{% if form.errors %}
+<p class="errornote">{% trans "Please correct the errors below" %}:</p>
+{% endif %}
+<div id="commentform">
+<span class="commenttitle"><a name="newcomments"></a>{% trans "Leave You Comment" %}</span>
+<form method="post" action="" name="comment-form">
+<div class="form-row" >
+{% if form.comment_author.errors %}<span class="error">{{ form.comment_author.errors|join:", " }}</span>{% endif %}
+  <label for="id_comment_author" class="required">{% trans "Author" %}:</label>
+  
+  {{form.comment_author}}
+</div>
+<div class="form-row" >
+{% if form.comment_author_email.errors %}<span class="error">{{ form.comment_author_email.errors|join:", " }}</span>{% endif %}
+  <label for="id_comment_author_email" class="required">{% trans "Email" %}:</label>   
+  {{form.comment_author_email}}
+  
+</div>
+<div class="form-row" >
+{% if form.comment_author_url.errors %}<span class="error">{{ form.comment_author_url.errors|join:", " }}</span>{% endif %}
+  <label for="id_comment_author_url" class="required">{% trans "URL" %}:</label> 
+
+  {{form.comment_author_url}}
+</div>
+<div class="form-row" >
+{% if form.comment_content.errors %}<span class="error">{{ form.comment_content.errors|join:", " }}</span>{% endif %}
+  <label for="id_comment_content" class="required">{% trans "Content" %}:</label> 
+  {{form.comment_content}}
+</div>
+<div>
+<img src="{%url validate_code%}" onclick="reload_verifycode(this)" style="cursor:pointer; vertical-align:middle;" border="0"/><input type="text" size="8" name="comment_vcode"/>请输入左边图片中的字符
+</div>
+<div class="submit-row" >
+  <input type="submit" value="{% trans "Submit Comment" %}" class="button" />
+  
+</div>
+</form>
+  </div> 
+{%endif%}

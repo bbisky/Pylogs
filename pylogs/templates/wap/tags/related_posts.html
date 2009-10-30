@@ -1,0 +1,9 @@
+{% if posts %}
+{% for post in posts %}
+    » <a title="{{post.title}}" href="{%url wap_pre%}{{post.get_absolute_url}}">{{post.title}}</a><br/>
+{% endfor %}
+{% else %}
+{% load i18n %} 
+{% trans "No related post now" %}!
+{% endif %}
+
