@@ -1,0 +1,19 @@
+{% load i18n waptags themes config%}<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE wml PUBLIC "-//WAPFORUM//DTD WML 1.1//EN" "http://www.wapforum.org/DTD/wml_1.1.xml">
+<wml>
+<head>
+<meta http-equiv="cache-control" content="no-cache"/>
+</head>
+<card title="{% block title %}Pylogs手机版{% endblock %}">
+<p align="center"><img src="{%media_url%}/wap/img/pylogs_m.gif" alt="Pylogs 手机版"/> </p>
+<p>【{% get_menus %}】</p>
+<p>{%block content%}{%endblock%}</p>
+<p><strong>分类：</strong>
+<br/>【{% get_categories%}】</p>
+<p>
+Powered by <a href="http://code.google.com/p/pylogs/">Pylogs</a><em>{% get_version %}</em>
+<br/>{%now "Y-n-d fA"%}
+</p>
+</card>
+
+</wml>

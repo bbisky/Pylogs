@@ -1,0 +1,135 @@
+{% if form %}{% load i18n %} 
+{% if form.errors %}
+<p class="errornote">{% trans "Please correct the errors below" %}:</p>
+{% endif %}
+<script language="javascript">
+function post_comment(){
+  var btn = ':button.button';
+  $(btn).attr('disabled',true);
+  
+  var url = '{%url post_comment postid=post.id %}';
+  var author = $.trim($('#id_comment_author').val());
+  var  author_email=$.trim($('#id_comment_author_email').val());
+  var  author_url=$.trim($('#id_comment_author_url').val());
+  var  content=$.trim($('#id_comment_content').val());
+  var  vcode=$.trim($('#id_comment_vcode').val());
+  var validated = true;
+  if(author == "")
+  {
+      input_error('#id_comment_author');
+     validated = false;
+  }
+  else
+  {
+     $('#id_comment_author').css('border',"");
+  }
+  if(author_email == "")
+  {
+       input_error('#id_comment_author_email');
+      validated = false;
+  }
+  else
+  {
+    var email_reg = /^[_\.0-9a-zA-Z+-]+@([0-9a-zA-Z]+[0-9a-zA-Z-]*\.)+[a-zA-Z]{2,4}$/;
+    if(!email_reg.exec(author_email))
+    {
+       $('#id_comment_author_email').parent('div.form-row').append($('<span style="color:#f00;">请输入正确的EMAIL</span>'));
+      validated = false;
+    }
+    else{
+      $('#id_comment_author_email').css('border',"");
+    }
+  }
+  if(content == "")
+  {
+       input_error('#id_comment_content');
+       validated = false;
+  } else
+  {
+     $('#id_comment_content').css('border',"");
+  }
+  if(vcode == "")
+  {
+       input_error('#id_comment_vcode');
+       validated = false;
+  }
+   else
+  {
+     $('#id_comment_vcode').css('border',"");
+  }
+  
+  if(!validated){
+    $(btn).attr('disabled',false);    
+  }
+  else{
+    var cmt_html = $('<li class="alt1"><strong>'+author+'</strong><span class="byline">发表于:'+new Date().toLocaleString()+'</span><p>'+content+'</p></li>');
+    $.getJSON(url,
+              {author:author,
+              email:author_email,
+              url:author_url,
+              content:content,
+              vcode:vcode
+              },            
+              function(j){              
+                  if (!j.success){
+                      alert(j.error);
+                      $(btn).attr('disabled',false);
+                  }
+                  else{
+                      alert(j.success);
+                      reload_verifycode(document.getElementById('img_validate_code'));
+                      $('form :text').val('');
+                      $('form textarea').val('');
+                      //append to page                    
+                      if(!$('#comments ul').length)
+                      {             
+                        $('div.post').after($('<div id="comments"><span class="commenttitle"><a name="comments"/>评论</span><ul></ul></div>'));
+                      }
+                       $('#comments ul').append(cmt_html);
+                      }
+                      $(btn).attr('disabled',false);
+                      });
+  }
+
+}
+function input_error(obj)
+{
+  $(obj).css('border',"1px solid #f00");
+}
+</script>
+<div id="commentform">
+<span class="commenttitle"><a name="newcomments"></a>{% trans "Leave You Comment" %}</span>
+<form method="post" action="" name="comment-form">
+<div class="form-row" >
+{% if form.comment_author.errors %}<span class="error">{{ form.comment_author.errors|join:", " }}</span>{% endif %}
+  <label for="id_comment_author" class="required">{% trans "Author" %}:</label>
+  
+  {{form.comment_author}}
+</div>
+<div class="form-row" >
+{% if form.comment_author_email.errors %}<span class="error">{{ form.comment_author_email.errors|join:", " }}</span>{% endif %}
+  <label for="id_comment_author_email" class="required">{% trans "Email" %}:</label>   
+  {{form.comment_author_email}}
+  
+</div>
+<div class="form-row" >
+{% if form.comment_author_url.errors %}<span class="error">{{ form.comment_author_url.errors|join:", " }}</span>{% endif %}
+  <label for="id_comment_author_url">{% trans "URL" %}:</label> 
+
+  {{form.comment_author_url}}
+</div>
+<div class="form-row" >
+{% if form.comment_content.errors %}<span class="error">{{ form.comment_content.errors|join:", " }}</span>{% endif %}
+  <label for="id_comment_content" class="required">{% trans "Content" %}:</label> 
+  {{form.comment_content}}
+</div>
+<div>
+<img src="{%url validate_code%}" id="img_validate_code" onclick="reload_verifycode(this)" style="cursor:pointer; vertical-align:middle;" border="0"/><input type="text" id="id_comment_vcode" size="8" name="comment_vcode"/>请输入左边图片中的字符
+</div>
+<div class="submit-row" >
+  <input type="button" onclick="post_comment()" value="{% trans "Submit Comment" %}" class="button" />
+</div>
+</form>
+
+  </div> 
+{%endif%}

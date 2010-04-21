@@ -1,0 +1,2 @@
+{%load i18n%}<a href="{%url wap_pre%}/">{%trans "Home"%}</a>.<a href="{%url wap_pre%}{%url tags%}">{%trans "Tags"%}</a>{% for menu in menus %}.<a href="{%url wap_pre%}{{menu.get_absolute_url}}">{{menu.title|safe}}</a>{% endfor %}
+
