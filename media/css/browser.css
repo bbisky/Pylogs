@@ -1,0 +1,115 @@
+/* Trac CSS */
+body {
+ background: #fff;
+ color: #000;
+ margin: 5px;
+ margin-top:0px;
+ padding: 0;
+}
+form{display:inline;}
+input.text{border:1px solid #ccc; width:100px;}
+body, th, td {
+ font: normal 13px verdana,arial,'Bitstream Vera Sans',helvetica,sans-serif;
+}
+#head{color:#092E20}
+/* Link styles */
+:link, :visited {
+ text-decoration: none;
+ color: #b00;
+ border-bottom: 1px dotted #bbb;
+}
+:link:hover, :visited:hover {
+ background-color: #eee;
+ color: #555;
+}
+#dirlist a:link, #dirlist a:visited { color:#ab5603; text-decoration:none; }
+#dirlist a:hover { background-color:#E0FFB8; color:#234f32; text-decoration:none; }
+a:hover { color:#ffe761; }
+#dirlist h2 a, #content-main h3 a { text-decoration:none !important; }
+#dirlist a.closed { text-decoration: line-through; }
+
+#dirlist th.name{
+    width:50%;
+}
+#dirlist td.name a.parent {
+background-image:url(../images/parent.png);
+}
+#dirlist td.name a.dir {
+background-image:url(../images/folder.png);
+}
+#dirlist td.name a.file {
+background-image:url(../images/file.png);
+}
+#dirlist td.rev,#dirlist th.rev, #dirlist td.change,#dirlist th.change{display:none;}
+#dirlist td.name a, #dirlist td.rev a {
+border-bottom:medium none;
+display:block;
+}
+#dirlist td.name a, #dirlist td.name span {
+background-position:0% 50%;
+background-repeat:no-repeat;
+padding-left:20px;
+}
+
+/* Styles for tabular listings such as those used for displaying directory
+   contents and report results. */
+table.listing {
+ clear: both;
+ border-bottom: 1px solid #d7d7d7;
+ border-collapse: collapse;
+ border-spacing: 0;
+ margin-top: 1em;
+ width: 100%;
+}
+table.listing th { text-align: left; padding: 0 1em .1em 0; font-size: 12px }
+table.listing thead { background: #f7f7f0 }
+table.listing thead th {
+ border: 1px solid #d7d7d7;
+ border-bottom-color: #999;
+ font-size: 11px;
+ font-weight: bold;
+ padding: 2px .5em;
+ vertical-align: bottom;
+}
+table.listing thead th :link:hover, table.listing thead th :visited:hover {
+ background-color: transparent;
+}
+table.listing thead th a { border: none; padding-right: 12px }
+table.listing th.asc a, table.listing th.desc a { font-weight: bold }
+table.listing th.asc a, table.listing th.desc a {
+ background-position: 100% 50%;
+ background-repeat: no-repeat;
+}
+table.listing th.asc a { background-image: url(../images/asc.png) }
+table.listing th.desc a { background-image: url(../images/desc.png) }
+table.listing tbody td, table.listing tbody th {
+ border: 1px dotted #ddd;
+ padding: .33em .5em;
+ vertical-align: top;
+}
+table.listing tbody td a:hover, table.listing tbody th a:hover {
+ background-color: transparent;
+}
+table.listing tbody tr { border-top: 1px solid #ddd }
+table.listing tbody tr.even { background-color: #fcfcfc }
+table.listing tbody tr.odd { background-color: #f7f7f7 }
+table.listing tbody tr:hover { background: #eed !important }
+
+/* Version information (browser, wiki, attachments) */
+#info {
+ margin: 0 0 0 0;
+ background: #f7f7f0;
+ border: 1px solid #d7d7d7;
+ border-collapse: collapse;
+ border-spacing: 0;
+ clear: both;
+ width: 100%;
+}
+#info th, #info td { font-size: 85%; padding: 2px .5em; vertical-align: top }
+#info th { font-weight: bold; text-align: left; white-space: nowrap }
+#info td.message { width: 100% }
+#info .message ul { padding: 0; margin: 0 2em }
+#info .message p { margin: 0; padding: 0 }
+
+div.message{border:1px solid #0f0; background:#eee; padding:1em; color:#0f0}
+.copyinfo{float:right; font-size:9px;}

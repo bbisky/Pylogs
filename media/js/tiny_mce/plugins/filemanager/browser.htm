@@ -1,0 +1,95 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <title>{#dfm_dlg.title}</title>
+        <script language="javascript" type="text/javascript" src="../../tiny_mce_popup.js"></script>
+        <script language="javascript" type="text/javascript" src="../../utils/mctabs.js"></script>
+        <script language="javascript" type="text/javascript" src="../../utils/form_utils.js"></script>
+        <script language="javascript" type="text/javascript" src="../../utils/validate.js"></script>
+        <script language="javascript" type="text/javascript" src="js/dfm.js"></script>
+		<link href="css/filemanager.css" rel="stylesheet" type="text/css" />
+        <base target="_self" />
+    </head>
+    <body>
+        <form onsubmit="insertCode();return false;" action="#">
+            <div class="tabs">
+                <ul>
+                    <li id="general_tab" class="current"><span><a href="javascript:mcTabs.displayTab('general_tab','general_panel');" onmousedown="return false;">{#dfm_dlg.title}</a></span></li>
+                </ul>
+            </div>
+            
+          <div class="panel_wrapper">
+			<div class="panel current" id="general_panel">
+				<!--<fieldset>
+						<legend>General</legend>
+
+						<table class="properties">
+							<tbody><tr>
+								<td class="column1"><label for="src" id="srclabel">Image URL</label></td>
+								<td colspan="2"><table cellspacing="0" cellpadding="0" border="0">
+									<tbody><tr> 
+									  <td><input type="text" onchange="ImageDialog.showPreviewImage(this.value);" class="mceFocus" value="" id="src" name="src"/></td> 
+									  <td id="srcbrowsercontainer"/>
+									</tr>
+								  </tbody></table></td>
+							</tr>
+							<tr>
+								<td><label for="src_list">Image list</label></td>
+								<td><select onchange="document.getElementById('src').value=this.options[this.selectedIndex].value;document.getElementById('alt').value=this.options[this.selectedIndex].text;document.getElementById('title').value=this.options[this.selectedIndex].text;ImageDialog.showPreviewImage(this.options[this.selectedIndex].value);" name="src_list" id="src_list"><option value=""></option><option value="media/logo.jpg">Logo 1</option><option value="media/logo_over.jpg">Logo 2 Over</option></select></td>
+							</tr>
+							<tr> 
+								<td class="column1"><label for="alt" id="altlabel">Image description</label></td> 
+								<td colspan="2"><input type="text" value="" name="alt" id="alt"/></td> 
+							</tr> 
+							<tr> 
+								<td class="column1"><label for="title" id="titlelabel">Title</label></td> 
+								<td colspan="2"><input type="text" value="" name="title" id="title"/></td> 
+							</tr>
+						</tbody></table>
+				</fieldset>-->
+				<fieldset>
+					<legend>{#dfm_dlg.browser}</legend>
+					<iframe src="/file/" id="filebrowser" >
+					</iframe>
+				</fieldset>
+				<fieldset>
+					<legend>{#dfm_dlg.preview}</legend>
+					<div id="prev"></div>
+				</fieldset>
+			</div>
+
+			
+		</div>
+            
+            <div class="mceActionPanel">
+                <div style="float: left">
+                    <input type="button" id="insert" name="insert" value="{#insert}" onclick="DFM.insert();" />
+                </div>
+                
+                <div style="float: right">
+                    <input type="button" id="cancel" name="cancel" value="{#cancel}" onclick="tinyMCEPopup.close();" />
+                </div>
+            </div>
+        </form>
+	<script language="javascript">
+	//set default upload directory
+	    var iframe = document.getElementById('filebrowser');
+	    if (iframe) {
+		var today = new Date();
+		var y = today.getFullYear();
+		var m = today.getMonth()+1;
+		if (m<10)
+		    m = '0' + m;
+		var d = today.getDate();
+		if (d<10)
+		    d = '0' + d;
+		var filemanager_url = '/filemanager/files/';
+		filemanager_url += y + '' + m;
+		filemanager_url += '/';
+		filemanager_url += d;
+		filemanager_url += '/';
+		iframe.src = filemanager_url;		
+	    }
+	</script>
+    </body>
+</html>

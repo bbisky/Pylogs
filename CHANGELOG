@@ -1,0 +1,112 @@
+
+        Pylogs更新日志(CHANGELOG)
+******************************************
+2009-3-24 _version: 1.15beta
+  1. 支持手机访问
+  2. Bug修复
+  
+2008-11-19 _version: 1.14beta
+  1. 支持metaWeblog API
+
+2008-10-8 _version: 1.14beta
+  1. 程序全部迁移至Django 1.0final
+  2. 修正tags页的错误
+  3. 修复几处bug
+  
+2008-08-12 _version: 1.13beta
+  1. 增加Django v1.0alpha支持，修复使用Django v1.0管理界面没有model修改的错误（使用方法见README文件)
+  2. i18n完善
+  
+2008-08-10 _version: 1.13beta
+  1. 修改模板选择结构
+  2. 修正几处样式错误
+  3. i18n完善
+
+2008-08-08 _version: 1.13beta
+  1. 新增奥运主题 beijing2008 
+  2. 修复几处bug
+
+2008-07-26 version: 1.12beta
+  1. 加入了单元测试
+  2. 合并几个tags文件
+  3. 加入简单的SEO优化
+  4. 修复几处bug,对代码进行优化
+  
+2008-07-22 _version: 1.12beta
+   1. urls.py中urlpattern使用url()命名，避免拼接url字符串，方便修改url策略
+   
+2008-07-02 _version: 1.12beta
+   1. 增加“相关文章”功能
+   2. 开发tinymce上传管理插件（DFM(v0.1beta)基于django）,方便在发表文章时上传图片及文件
+   3. 修复几个bug
+  
+2008-05-27 _version: 1.11beta
+   1. 修复几个bug
+   2. 对代码进行了进一步的整理及优化(多谢dreamingk帮我review code及提出的建议)
+  
+2008-05-21 _version: 1.11beta
+   1. 修正tag统计错误的bug
+  
+2008-05-20 _version: 1.11beta
+   1. 代码清理及bug修复
+   2. 更新获取归档月份列表的方式[直接sql查询 -> objects.date()]
+  
+2008-05-10 version: 1.11beta
+
+   1. 增加最新文章，最新评论，热门文章等tags
+   2. 完善todo的i18n 
+
+2008-05-05 version: 1.10beta
+
+   1. 增加tags页，显示所有的标签，按引用次数显示不同大小 
+
+2008-04-23 version: 1.10beta
+
+   1. Todo功能上线测试，使了强大的jQuery框架
+   2. 修正几个小错误 
+
+2008-04-11 version: 1.10beta
+
+   1. 代码高亮使用js的syntaxhighlighter 替代pygments,减少pylogs对python包的依赖
+   2. 后台tinymce编辑器添加插入代码功能，配合syntaxhighlighter使用 
+
+2008-03-21
+
+   1. 集成几个模板为一个模板文件
+   2. 修正几个css的问题
+   3. 增加查看标签文章列表 
+
+2008-03-20 version: 1.10beta
+
+   1. 增加皮肤支持
+   2. 增加了一套新的皮肤 techicon
+   3. 管理界面加入tinymce编辑器
+   4. 修正几处css问题 
+
+2008-3-5 version: 1.01beta
+
+   1. 评论改为正序排列，方便阅读
+   2. 添加发表评论成功提示信息
+   3. 修正导入的文章中的\r\n在显示文章时不能正常解析为换行的bug
+   4. 修正订阅链接重复编码致使订阅中不能显示图片的bug 
+
+2008-1-15
+
+   1. 加入“归档”功能
+   2. i18n支持
+   3. 修复url解析月份时的错误 
+
+2008-1-13
+
+   1. 加入highslide图片浏览效果
+   2. 修复几处小的错误 
+
+2008-1-12
+
+   1. 成功导入原有wordpress上的数据
+   2. 加入代码高亮功能，并且在dreamhost上成功安装Pygments
+   3. 修复几处小的错误 
+
+2008-1-10 version: 1.0beta
+
+   1. 美化皮肤，界面更加漂亮了 
