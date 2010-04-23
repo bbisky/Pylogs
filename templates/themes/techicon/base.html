@@ -9,14 +9,13 @@
 <meta name="description" content="{%site_description%}"/>{%endblock%}
 <script type="text/javascript" src="{%media_url%}/js/highslide.packed.js"></script>
 <script type="text/javascript" src="{%media_url%}/js/shCore.js"></script>
-<script type="text/javascript" src="{%media_url%}/js/common.js"></script>
 <script type="text/javascript" src="{%media_url%}/js/shBrushes.js"></script>
 <link rel="stylesheet" href="{%media_url%}/css/SyntaxHighlighter.css" type="text/css" media="screen" >
 <link rel="stylesheet" href="{% theme_media_url %}/css/style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="{%media_url%}/css/code.css" type="text/css" media="screen" >
 <link rel="stylesheet" href="{%media_url%}/css/highslide.css" type="text/css" media="screen">
-    <link rel="alternate" type="application/rss+xml" title="订阅 Pylogs Rss Feed" href='{% url feeds url="rss" %}'>
-    <link rel="alternate" type="application/rss+xml" title="订阅 Pylogs Atom Feed" href='{% url feeds url="atom" %}'>
+    <link rel="alternate" type="application/rss+xml" title="{%site_name%} Rss Feed" href='{% url feeds url="rss" %}'>
+    <link rel="alternate" type="application/rss+xml" title="{%site_name%} Atom Feed" href='{% url feeds url="atom" %}'>
 {% block script %}{% endblock %}
 </head>
 <body>

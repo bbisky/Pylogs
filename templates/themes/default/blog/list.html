@@ -1,8 +1,8 @@
-{% load i18n themes render%}
+{% load i18n themes posttags render%}
 {% theme_extends "base.html" %}
 {% block title %}{{pagetitle}} - {{ block.super }} {% endblock %}
 {% block content %} 
-            {% for post in posts %}
+{% for post in ol.object_list %}
                 <div class="entry">
       <h1>
         <a href="{{post.get_absolute_url}}">{{post.title}}</a>
@@ -20,11 +20,9 @@
         <a href="{{post.get_absolute_url}}#newcomments">{% trans "Comments" %}({{post.comment_count}})</a> | {{post.hits}} {% trans "Views" %}
       </div>
     </div>      
-            {% endfor %}
+{% endfor %}
 <!--Start of pagger-->
-<div id="pagger">
-    {% if prev_page %}<a href="?page={{prev_page}}">{% trans "Prev" %}</a>{% endif %}
-    {% if next_page%}<a href="?page={{next_page}}">{% trans "Next" %}</a>{% endif %}    
-</div>
+{% paginator ol %}
 <!--End of pagger-->
+
 {% endblock %}

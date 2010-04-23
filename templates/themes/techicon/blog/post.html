@@ -1,9 +1,10 @@
 {% load i18n themes posttags render%}
 {% theme_extends "base.html" %}
-{% block title %}{{post.title}} - {{ block.super }} {% endblock %}
-{% block meta %}<meta content="{{post.title}},Pylogs,基于Python的博客系统" name="keywords"/>
+{% block title %}{{post.title}}-{{ block.super }} {% endblock %}
+{% block meta %}<meta content="{{post.title}},Pylogs" name="keywords"/>
 <meta name="description" content="{{post.content|striptags|truncatewords_html:30}}"/>{%endblock%}
-{% block script %}<script language="javascript" type="text/javascript" src="{%media_url%}/js/jquery-1.2.3.pack.js" ></script>{%endblock%}
+{% block script %}<script language="javascript" type="text/javascript" src="{%media_url%}/js/jquery.pack.js" ></script>
+<script type="text/javascript" src="{%media_url%}/js/common.js"></script>{%endblock%}
 {% block content %}
 <!--Start of content-->
  <div class="post">

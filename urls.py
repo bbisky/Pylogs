@@ -63,7 +63,9 @@ urlpatterns += patterns('blog.views',
                         url(r'^tags/$','tags',name='tags'),
                         url(r'^tags/(?P<tagname>.*)/$','tags',name='tagname'),                        
                         url(r'^(\d{4})/(\d{1,2})/(\d{1,2})/(?P<postname>[^/]+)/$','post',name='post_name'),
+                        #ajax
                         url(r'^post/(?P<postid>(\d+))/comment$','post_comment',name='post_comment'),
+                        #url(r'^post/(?P<postid>(\d+))/comments', 'get_post_comments', name='ajax_post_comments'),
                         #category view
                         url(r'^category/(?P<catid>\d+)/$','categoryView',name="category_id"),
                         url(r'^category/(?P<catname>[^/]+)/$','categoryView',name="category_name"),                        

@@ -5,17 +5,17 @@ import random
 from django.utils.translation import ugettext as _
 from django.template import loader,Context,RequestContext
 from django.utils.http import urlquote
+from django.utils import simplejson
 from django.http import HttpResponse,HttpResponseRedirect,Http404
 from django.shortcuts import get_object_or_404,get_list_or_404,render_to_response
 from django.core.paginator import Paginator, InvalidPage
 from django.core.urlresolvers import reverse
-from django.utils import simplejson
 
 from utils import html
 from utils.email import new_comment_mail
 from blog.templatetags.themes import theme_template_url
 from blog import models,blog_forms
-from blog.models import Post,Comments,Tags,Category
+from blog.models import Post,Comments,Tags,Category,COMMENT_APPROVE_STATUS
 from utils.waptools import detect_mobile
 
 PAGE_SIZE = 10
@@ -134,9 +134,19 @@ def page(request,pagename):
             #update hits count
             page.hits = page.hits + 1
             page.save()
-            request.session['post_hits_%s' % page.id] = True;       
+            request.session['post_hits_%s' % page.id] = True;     
+        comments = Paginator(page.comments_set.filter(comment_approved__iexact=
+                                                    COMMENT_APPROVE_STATUS[1][0]).order_by('comment_date'),
+                                                    PAGE_SIZE
+                          )
+        pageid = int(request.GET.get('page', 1))
+        
         return render_to_response(theme_template_url()+ '/blog/page.html',
-                                  {'post':page,'form':form,'msg':msg,'error':error},
+                                  {'post':page,
+                                    'form':form,
+                                    'comments':comments.page(pageid),
+                                    'msg':msg,
+                                    'error':error},
                                   context_instance=RequestContext(request))        
     else:
         raise Http404()
@@ -230,7 +240,7 @@ def renderPaggedPosts(pageid,pageTitle,pagedPosts,showRecent = False,request=Non
                                   {'pagetitle':pageTitle},
                                   context_instance=RequestContext(request))
     currentPage = pagedPosts.page(pageid)
-    data = {'pagetitle':pageTitle,'posts':currentPage.object_list}
+    data = {'pagetitle':pageTitle,'ol':currentPage}
     if currentPage.has_next():
         data["next_page"] = pageid +1
     if currentPage.has_previous():
@@ -244,23 +254,25 @@ def renderPaggedPosts(pageid,pageTitle,pagedPosts,showRecent = False,request=Non
                               data,
                               context_instance=context)
 
-def json(data):
-    data = simplejson.dumps(data)
+def json(data):    
+    data = simplejson.dumps(data)    
     return HttpResponse(data,mimetype='application/x-javascript')
     
 def post_comment(request,postid):
-    vcode = request.GET.get('vcode')
+    if not request.is_ajax():
+        raise Http404    
+    vcode = request.POST.get('vcode')
     if vcode.lower() != request.session.get('vcode'):
         error = _('The confirmation code you entered was incorrect!')
         return json({'success':False,'error':error})
     else:                
         #set a random string to session, refresh post failed
         request.session['vcode'] = random.random();
-        author = request.GET.get('author')
-        email = request.GET.get('email')
-        content = request.GET.get('content')
+        author = request.POST.get('author')
+        email = request.POST.get('email')
+        content = request.POST.get('content')
         
-        url = request.GET.get('url','')
+        url = request.POST.get('url','')
         
         post = Post.objects.get(id__exact=int(postid))
         if  post.comment_status ==  models.POST_COMMENT_STATUS[3][0]:  # comment no need approve
@@ -278,8 +290,7 @@ def post_comment(request,postid):
         comment.save()
         new_comment_mail(post.title,comment.comment_content)   
         return json({'success':_('Comment post successful!')})            
-        #send mail to admin
-
+ 
 def user_host_address(request):
     """
     get user ip address

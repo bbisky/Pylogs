@@ -1,0 +1,53 @@
+{% load i18n posttags menu themes config %}<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>{% block title %}{%site_name%}-{%site_subtitle%}{% endblock %}</title>
+{%block meta %}
+<meta content="{%site_keywords%}" name="keywords"/>
+<meta name="description" content="{%site_description%}"/>{%endblock%}
+<link rel="stylesheet" type="text/css" href="{%theme_media_url%}/css/screen.css"/>
+{% block script %}{% endblock %}
+</head>
+<body id="body">
+<div class="width">
+  <div class="minwidth">  
+    <div id="layer_message">      
+    </div>   
+    <table class="mainLayout" cellspacing="0">
+      <tbody>
+        <tr>
+          <td class="mainLayoutTD"><div id="wrap">
+              <!-- HEADER -->
+              <div id="header" class="header_menutab1">                
+                <h1><a href="http://struct.cn/"><span class="blind">Struct.cn</span></a></h1>
+                <ul class="menu">
+                  <li class="on">
+                  <a href="index.html" class="menutab1" ><span>首页</span></a><span class="beta"><span class="blind">BETA</span></span></li>
+                  <li><a href="1.html" class="menutab2"><span>解决方案</span></a></li>
+                  <li><a href="2.html" class="menutab3"><span>服务</span></a></li>
+                  <li><a href="3.html" class="menutab4"><span>成功案例</span></a></li>
+                  <li><a href="4.html" class="menutab5"><span>关于我们</span></a></li>                
+                </ul>
+                <div class="gnb_area" id="gnb_area">
+                  <div id="gnb_utility">
+                    <div class="account"></div>
+                    <ul>
+                      <li><a href="">简体中文</a></li>
+                      <li><a href="">English</a></li>                      
+                    </ul>
+                  </div>
+                </div>
+               
+                <div id="start" class="skip blind"><a name="start"></a></div>
+              </div>
+              <!-- //HEADER -->
+             {% block content %}{% endblock %}            
+            </div></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>

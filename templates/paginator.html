@@ -1,0 +1,19 @@
+{% if ol %}<div class="pagger"><ul>
+		{% ifnotequal ol.paginator.num_pages 1 %}
+		<li><a href="./">&laquo;</a></li>                 
+	    <li><a {% if ol.has_previous %} href="./?page={{ol.previous_page_number}}" {% endif %} >&#8249;</a></li>
+		{% for p in page_range %}
+		<li>{%ifequal p '...' %}
+		<span>{{p}}</span>
+		{%else%}
+			{% ifequal p ol.number %}
+			<span class="current">{{p}}</span>
+			{%else%}
+			<a href="./?page={{p}}{{querystr}}">{{p}}</a>{%endifequal%}
+		{%endifequal%}
+		</li>
+		{%endfor%}
+	        <li><a {% if ol.has_next %} href="./?page={{ol.next_page_number}}" class="a_hui12" {%else%} class="a_disabled" {% endif %}>&#8250;</a></li>
+	        <li><a  href="./?page={{ol.paginator.num_pages}}" class="a_hui12">&raquo;</a></li>
+	{%endifnotequal%}      
+</ul></div>{%endif%}

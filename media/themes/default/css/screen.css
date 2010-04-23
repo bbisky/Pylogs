@@ -348,3 +348,10 @@ padding:0pt;
 }
 /* prompt message */
 .message{background:#33ff66; color:#003300 font-weight:bold;}
+
+/*pagger*/
+#content .pagger{text-align:right;}
+#content .pagger li{display:inline;text-align:center; margin:0;padding:0;background:none; }
+#content .pagger li span.current{padding:3px 8px; background-color:#1C5A8F; color:#fff;border:1px solid #fff;-moz-border-radius: 3px;-webkit-border-radius: 3px;}
+#content .pagger a:hover{border-color:#fff; background-color:#1C5A8F; color:#fff;}
+#content .pagger a,.pagger a:link,.pagger a:visited{padding:3px 8px; margin:0;border:1px solid #ccc;-moz-border-radius: 3px;-webkit-border-radius: 3px;}

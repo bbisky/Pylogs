@@ -801,3 +801,12 @@ input,textarea,input.textbox{background:#F1F1F1 none repeat scroll 0%;border-col
 .errornote {background:#FFFFCC url(../img/admin/icon_error.gif) no-repeat scroll 5px 0.3em;border:1px solid red;color:red;display:block;font-size:12px !important;margin:0pt 0pt 3px;padding:4px 5px 4px 25px;}
 .error{background:#ff0 url(../img/admin/icon_alert.gif) no-repeat scroll 5px 0.3em;border:1px solid #f00;color:#f00;display:block;font-size:12px !important;margin:9pt 0pt 3px;padding:4px 5px 4px 25px;}
 label.required{	font-weight:bold;}
+
+#content .pagger{text-align:right; clear:both; display:block; padding:1em 0; font-size:9pt}
+#content ul{margin:0;}
+#content .pagger li{display:inline;text-align:center; margin:0;padding:0; }
+#content .pagger li span.current{padding:3px 8px;background-color:#FF8B00; color:#fff;border:1px solid #fff;-moz-border-radius: 3px;-webkit-border-radius: 5px;}
+#content .pagger a:hover{border-color:#fff; background-color:#FF8B00; color:#fff;}
+#content .pagger a,
+.pagger a:link,
+.pagger a:visited{padding:3px 8px; text-decoration:none; color:#333; margin:0;border:1px solid #ccc;-moz-border-radius: 3px;-webkit-border-radius: 5px;}

@@ -1,9 +1,10 @@
-{% load i18n themes %}
+{% load i18n themes posttags %}
 {% theme_extends "base.html" %}
-{% block title %}{{post.title}} - {{ block.super }} {% endblock %}
-{% block meta %}<meta content="{{post.title}},Pylogs,基于Python的博客系统" name="keywords"/>
-{% block script %}<script language="javascript" type="text/javascript" src="{%media_url%}/js/jquery-1.2.3.pack.js" ></script>{%endblock%}
+{% block title %}{{post.title}}-{{ block.super }} {% endblock %}
+{% block meta %}<meta content="{{post.title}},Pylogs" name="keywords"/>
 <meta name="description" content="{{post.content|striptags|truncatewords_html:30}}"/>{%endblock%}
+{% block script %}<script language="javascript" type="text/javascript" src="{%media_url%}/js/jquery.pack.js" ></script>
+<script type="text/javascript" src="{%media_url%}/js/common.js"></script>{%endblock%}
 <!--Start of content-->
 {% block content %}
 <div class="post">
@@ -32,7 +33,7 @@
     <div id="comments">
         <span class="commenttitle"><a name="comments"></a>{% trans "Comments" %}</span>
         <ul>
-        {% for cmt in post.get_comments%}
+        {% for cmt in comments.object_list%}
            <li class="{% cycle alt1,alt2,alt3 %}">
             <strong>{% if cmt.comment_author_url %}<a href="{{cmt.comment_author_url}}" target="_blank">{{cmt.comment_author}}</a>{% else %}{{cmt.comment_author}}{% endif %}</strong>
             <span class="byline">{% trans "Post at" %} {{cmt.comment_date|date:"Y-m-d H:i:s"}}</span>
@@ -40,9 +41,10 @@
            </li>
         {% endfor %}
         </ul>
+        {%paginator comments '#comments'%}
     </div>
  {% endifnotequal %}    
-        {% include "blog/comment_form.html" %}
+{% include "blog/comment_form.html" %}
     <!--End of comments-->
 {% endblock %}
 <!--End of content-->

@@ -1,19 +1,18 @@
 {% load i18n posttags menu links themes config %}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="zh-CN" lang="zh-CN" dir="ltr">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>{% block title %}Pylogs - logging your life.{% endblock %}</title>
+<title>{% block title %}{%site_name%}-{%site_subtitle%}{% endblock %}</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 {%block meta %}
-<meta content="Pylogs,blog,博客,todo,python,Django,基于Python的博客系统" name="keywords"/>
-<meta name="description" content="Pylogs是一个由Sky独立开发的个人站点，程序基于python+django.主要目的是实现一个简单的blog系统，当然不仅仅是blgo,以后将加入更多新的功能。总之，一切由简单开始！　　
-项目地址:http://code.google.com/p/pylogs
-Simple is beautiful..."/>{%endblock%}
+<meta name="keywords" content="{%site_keywords%}"/>
+<meta name="description" content="{%site_description%}"/>
+{%endblock%}
 <meta content="MSHTML 6.00.6001.18063" name="GENERATOR" />
 <meta content="Pylogs 1.12" name="generator" />
 <link rel="stylesheet" href="{%theme_media_url%}/css/style.css" type="text/css" media="screen"/>
-<link rel="alternate" type="application/rss+xml" title="订阅 Pylogs Rss Feed" href='{% url feeds url="rss" %}'/>
-<link rel="alternate" type="application/rss+xml" title="订阅 Pylogs Atom Feed" href='{% url feeds url="atom" %}'/>
+<link rel="alternate" type="application/rss+xml" title="{%site_name%} Rss Feed" href='{% url feeds url="rss" %}'/>
+<link rel="alternate" type="application/rss+xml" title="{%site_name%} Atom Feed" href='{% url feeds url="atom" %}'/>
 <script type="text/javascript" src="{%media_url%}/js/highslide.packed.js"></script>
 <script type="text/javascript" src="{%media_url%}/js/shCore.js"></script>
 <script type="text/javascript" src="{%media_url%}/js/common.js"></script>
@@ -27,7 +26,7 @@ Simple is beautiful..."/>{%endblock%}
 <div id="header">
 <div id="ing">
 <div id="ing_info">
-<div id="home"><a href="/" title="Pylogs. logging your life...">
+<div id="home"><a href="/" title="{%site_name%}">
 <img alt="logo" src="{%theme_media_url%}/images/logo.gif" /></a></div>
 </div> 
     <!-- SiteSearch Google -->

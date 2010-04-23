@@ -70,3 +70,27 @@ def get_latest_comments(context):
     return {'comments':comments}
 register.inclusion_tag('blog/tags/recent_comments.html',
                         takes_context=True)(get_latest_comments)
+                        
+def paginator(ol,querystr=''):
+    '''
+    paginator tag
+    @ol:        the Paginator page object
+    @querystr:  additional querystring attach to pager url link
+    '''
+    pag = ol.paginator
+    page_range = [1,2,3,4,5,6,7,8,9,10]
+    if len(pag.page_range) >10:
+        if ol.number >= 10:
+            page_range = [1,'...']
+            end = ol.number+8            
+            if end > pag.page_range[-1]:
+                end = pag.page_range[-1]+1            
+            for p in range(ol.number-2,end):
+                page_range.append(p)
+        if page_range[-1] < pag.page_range[-1]:
+            page_range.append('...')
+            
+    else:
+        page_range = pag.page_range
+    return {'ol':ol,'page_range':page_range,'querystr':querystr}
+register.inclusion_tag('paginator.html')(paginator)

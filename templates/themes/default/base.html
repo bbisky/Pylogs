@@ -3,19 +3,17 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">   
-    <title>{% block title %}Pylogs - logging your life.{% endblock %}</title>
+    <title>{% block title %}{%site_name%}-{%site_subtitle%}{% endblock %}</title>
 {% block meta %}
-    <meta content="Pylogs,blog,博客,todo,python,Django,基于Python的博客系统" name="keywords"/>
-<meta name="description" content="Pylogs是一个由Sky独立开发的个人站点，程序基于python+django.主要目的是实现一个简单的blog系统，当然不仅仅是blgo,以后将加入更多新的功能。总之，一切由简单开始！　　
-项目地址:http://code.google.com/p/pylogs
-Simple is beautiful..."/>
+<meta name="keywords" content="{%site_keywords%}"/>
+<meta name="description" content="{%site_description%}"/>
 {%endblock%}
     <script type="text/javascript" src="{% media_url %}/js/highslide.packed.js"></script>
     <link rel="stylesheet" href="{% theme_media_url %}/css/screen.css" type="text/css" media="screen">
     <link rel="stylesheet" href="{% media_url %}/css/code.css" type="text/css" media="screen">
     <link rel="stylesheet" href="{% media_url %}/css/highslide.css" type="text/css" media="screen">
-    <link rel="alternate" type="application/rss+xml" title="订阅 Pylogs Rss Feed" href="http://feed.feedsky.com/pylogs">
-    <link rel="alternate" type="application/rss+xml" title="订阅 Pylogs Atom Feed" href="http://feed.feedsky.com/pylogs_atom">
+    <link rel="alternate" type="application/rss+xml" title="{%site_name%} Rss Feed" href="http://feed.feedsky.com/pylogs">
+    <link rel="alternate" type="application/rss+xml" title="{%site_name%} Atom Feed" href="http://feed.feedsky.com/pylogs_atom">
     {% block script %}{% endblock %}
   </head>
   <body>
@@ -124,7 +122,7 @@ Simple is beautiful..."/>
         </div>
         <div id="copyright">
          Powered by  <a href="http://code.google.com/p/pylogs/">Pylogs</a> <sup style="color:#f0f;">{% get_version %}</sup>.<br>
-          Copyright &copy; 2008 Sky<br>          
+          Copyright &copy; 2008-2010 Sky<br>          
           All rights reserved.
         </div>
         <div class="clear"></div>

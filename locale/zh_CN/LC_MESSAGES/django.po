@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pylogs 1.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2009-11-01 16:10+0800\n"
-"PO-Revision-Date: 2009-11-01 16:11+0800\n"
+"POT-Creation-Date: 2010-04-23 18:38+0800\n"
+"PO-Revision-Date: 2010-04-23 18:48+0800\n"
 "Last-Translator: Sky <denghaibo@gmail.com>\n"
 "Language-Team: Sky <denghaibo@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -18,102 +18,101 @@ msgstr ""
 "X-Poedit-Country: CHINA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: .\blog\models.py:12
-#: .\blog\models.py:183
-#: .\blog\models.py:197
+#: .\blog\models.py:11
+#: .\blog\models.py:182
+#: .\blog\models.py:196
 msgid "Post"
 msgstr "文章"
 
-#: .\blog\models.py:13
+#: .\blog\models.py:12
 msgid "Page"
 msgstr "页面"
 
-#: .\blog\models.py:17
+#: .\blog\models.py:16
 msgid "Published"
 msgstr "已发布"
 
-#: .\blog\models.py:18
+#: .\blog\models.py:17
 msgid "Draft"
 msgstr "草稿"
 
-#: .\blog\models.py:19
+#: .\blog\models.py:18
 msgid "Private"
 msgstr "私人"
 
-#: .\blog\models.py:23
+#: .\blog\models.py:22
 msgid "UnApproved"
 msgstr "未审核"
 
-#: .\blog\models.py:24
+#: .\blog\models.py:23
 msgid "Approved"
 msgstr "已审核"
 
-#: .\blog\models.py:25
+#: .\blog\models.py:24
 msgid "Spam"
 msgstr "垃圾"
 
-#: .\blog\models.py:29
+#: .\blog\models.py:28
 msgid "Allow Comments"
 msgstr "允许评论"
 
-#: .\blog\models.py:30
+#: .\blog\models.py:29
 msgid "Disallow Comments"
 msgstr "不允许评论"
 
-#: .\blog\models.py:31
+#: .\blog\models.py:30
 msgid "Allow Register Comments"
 msgstr "只允许注册用户评论"
 
-#: .\blog\models.py:32
+#: .\blog\models.py:31
 msgid "No Need Approve"
 msgstr "评论不需审批"
 
-#: .\blog\models.py:37
+#: .\blog\models.py:36
 msgid "HTML"
 msgstr ""
 
-#: .\blog\models.py:38
+#: .\blog\models.py:37
 msgid "MARKDOWN"
 msgstr ""
 
-#: .\blog\models.py:43
-#: .\blog\models.py:75
+#: .\blog\models.py:42
+#: .\blog\models.py:74
 #: .\templates\filemanager\index.html.py:42
 msgid "Name"
 msgstr "名称"
 
-#: .\blog\models.py:44
+#: .\blog\models.py:43
 msgid "Slug"
 msgstr "简称"
 
-#: .\blog\models.py:45
-#: .\blog\models.py:78
-#: .\blog\models.py:115
+#: .\blog\models.py:44
+#: .\blog\models.py:77
+#: .\blog\models.py:114
 msgid "Use as url"
 msgstr "作为链接使用"
 
-#: .\blog\models.py:46
+#: .\blog\models.py:45
 msgid "Reference count"
 msgstr "引用次数"
 
-#: .\blog\models.py:66
+#: .\blog\models.py:65
 msgid "Tag"
 msgstr "标签"
 
-#: .\blog\models.py:67
-#: .\blog\models.py:132
+#: .\blog\models.py:66
+#: .\blog\models.py:131
 #: .\templates\blog\tags\menu.html.py:4
-#: .\templates\themes\beijing2008\blog\page.html.py:15
-#: .\templates\themes\beijing2008\blog\post.html.py:16
+#: .\templates\themes\beijing2008\blog\page.html.py:17
+#: .\templates\themes\beijing2008\blog\post.html.py:17
 #: .\templates\themes\beijing2008\blog\tags.html.py:3
 #: .\templates\themes\beijing2008\blog\tags.html.py:9
-#: .\templates\themes\default\blog\page.html.py:20
-#: .\templates\themes\default\blog\post.html.py:28
+#: .\templates\themes\default\blog\page.html.py:23
+#: .\templates\themes\default\blog\post.html.py:31
 #: .\templates\themes\default\blog\tags.html.py:3
 #: .\templates\themes\default\blog\tags.html.py:8
-#: .\templates\themes\default\blog\tags\menu.html.py:5
-#: .\templates\themes\techicon\blog\page.html.py:16
-#: .\templates\themes\techicon\blog\post.html.py:21
+#: .\templates\themes\techicon\blog\page.html.py:17
+#: .\templates\themes\techicon\blog\post.html.py:22
 #: .\templates\themes\techicon\blog\tags.html.py:3
 #: .\templates\themes\techicon\blog\tags.html.py:8
 #: .\templates\wap\page.html.py:12
@@ -124,154 +123,158 @@ msgstr "标签"
 msgid "Tags"
 msgstr "标签"
 
-#: .\blog\models.py:76
-#: .\blog\models.py:244
+#: .\blog\models.py:75
+#: .\blog\models.py:243
+#: .\blog\models.py:267
 msgid "Description"
 msgstr "描述"
 
-#: .\blog\models.py:77
+#: .\blog\models.py:76
 msgid "English name"
 msgstr "英文名"
 
-#: .\blog\models.py:99
-#: .\blog\models.py:113
+#: .\blog\models.py:98
+#: .\blog\models.py:112
 msgid "Category"
 msgstr "分类"
 
-#: .\blog\models.py:100
-#: .\templates\themes\beijing2008\base.html.py:100
-#: .\templates\themes\beijing2008\blog\page.html.py:11
-#: .\templates\themes\beijing2008\blog\post.html.py:12
-#: .\templates\themes\default\base.html.py:57
-#: .\templates\themes\default\blog\post.html.py:19
-#: .\templates\themes\techicon\base.html.py:99
-#: .\templates\themes\techicon\blog\post.html.py:14
+#: .\blog\models.py:99
+#: .\templates\themes\beijing2008\base.html.py:99
+#: .\templates\themes\beijing2008\blog\page.html.py:13
+#: .\templates\themes\beijing2008\blog\post.html.py:13
+#: .\templates\themes\default\base.html.py:55
+#: .\templates\themes\default\blog\post.html.py:22
+#: .\templates\themes\naver\blog\list.html.py:43
+#: .\templates\themes\techicon\base.html.py:96
+#: .\templates\themes\techicon\blog\post.html.py:15
 #: .\templates\wap\page.html.py:5
 #: .\templates\wap\post.html.py:6
 msgid "Categories"
 msgstr "分类"
 
-#: .\blog\models.py:108
-#: .\blog\models.py:243
+#: .\blog\models.py:107
+#: .\blog\models.py:242
 msgid "Title"
 msgstr "标题"
 
-#: .\blog\models.py:110
+#: .\blog\models.py:109
 msgid "Markup"
 msgstr ""
 
-#: .\blog\models.py:111
-#: .\blog\models.py:207
-#: .\templates\blog\comment_form.html.py:123
+#: .\blog\models.py:110
+#: .\blog\models.py:206
+#: .\templates\blog\comment_form.html.py:31
 msgid "Content"
 msgstr "内容"
 
-#: .\blog\models.py:114
+#: .\blog\models.py:113
 msgid "Post name"
 msgstr "文章缩略名"
 
-#: .\blog\models.py:116
+#: .\blog\models.py:115
 msgid "Post type"
 msgstr "文章类别"
 
-#: .\blog\models.py:118
+#: .\blog\models.py:117
 msgid "Post status"
 msgstr "文章状态"
 
-#: .\blog\models.py:123
+#: .\blog\models.py:122
 msgid "Parent page"
 msgstr "上级页面"
 
-#: .\blog\models.py:124
-#: .\blog\models.py:205
-#: .\blog\models.py:250
+#: .\blog\models.py:123
+#: .\blog\models.py:204
+#: .\blog\models.py:249
 #: .\templates\themes\beijing2008\blog\list.html.py:12
-#: .\templates\themes\beijing2008\blog\page.html.py:20
-#: .\templates\themes\beijing2008\blog\post.html.py:21
+#: .\templates\themes\beijing2008\blog\page.html.py:22
+#: .\templates\themes\beijing2008\blog\post.html.py:22
 #: .\templates\themes\default\blog\list.html.py:11
-#: .\templates\themes\default\blog\page.html.py:18
-#: .\templates\themes\default\blog\post.html.py:18
+#: .\templates\themes\default\blog\page.html.py:21
+#: .\templates\themes\default\blog\post.html.py:21
+#: .\templates\themes\naver\blog\list.html.py:13
 #: .\templates\themes\techicon\blog\list.html.py:30
-#: .\templates\themes\techicon\blog\page.html.py:13
-#: .\templates\themes\techicon\blog\post.html.py:13
+#: .\templates\themes\techicon\blog\page.html.py:14
+#: .\templates\themes\techicon\blog\post.html.py:14
 #: .\templates\wap\page.html.py:4
 #: .\templates\wap\post.html.py:5
 msgid "Pubdate"
 msgstr "发表时间"
 
-#: .\blog\models.py:125
+#: .\blog\models.py:124
 msgid "Hits"
 msgstr "点击"
 
-#: .\blog\models.py:126
+#: .\blog\models.py:125
 msgid "Menu order"
 msgstr "菜单排序"
 
-#: .\blog\models.py:127
+#: .\blog\models.py:126
 msgid "Comment status"
 msgstr "评论状态"
 
-#: .\blog\models.py:130
+#: .\blog\models.py:129
 msgid "Comment count"
 msgstr "评论数"
 
-#: .\blog\models.py:172
+#: .\blog\models.py:171
 msgid "Post categories"
 msgstr "文章类别"
 
-#: .\blog\models.py:184
+#: .\blog\models.py:183
 msgid "Posts"
 msgstr "文章"
 
-#: .\blog\models.py:199
-#: .\templates\blog\comment_form.html.py:105
+#: .\blog\models.py:198
+#: .\templates\blog\comment_form.html.py:13
 msgid "Author"
 msgstr "作者"
 
-#: .\blog\models.py:200
-#: .\templates\blog\comment_form.html.py:111
+#: .\blog\models.py:199
+#: .\templates\blog\comment_form.html.py:19
 msgid "Email"
 msgstr "Email"
 
-#: .\blog\models.py:201
-#: .\blog\models.py:242
-#: .\templates\blog\comment_form.html.py:117
+#: .\blog\models.py:200
+#: .\blog\models.py:241
+#: .\templates\blog\comment_form.html.py:25
 msgid "URL"
 msgstr "URL"
 
-#: .\blog\models.py:203
+#: .\blog\models.py:202
 msgid "IP"
 msgstr "IP"
 
-#: .\blog\models.py:208
+#: .\blog\models.py:207
 msgid "Approve status"
 msgstr "审核状态"
 
-#: .\blog\models.py:210
+#: .\blog\models.py:209
 msgid "User agent info"
 msgstr "用户浏览器信息"
 
-#: .\blog\models.py:212
+#: .\blog\models.py:211
 msgid "UserId"
 msgstr "用户ID"
 
-#: .\blog\models.py:231
+#: .\blog\models.py:230
 msgid "Comment"
 msgstr "评论"
 
-#: .\blog\models.py:232
+#: .\blog\models.py:231
 #: .\templates\themes\beijing2008\blog\list.html.py:11
-#: .\templates\themes\beijing2008\blog\page.html.py:12
-#: .\templates\themes\beijing2008\blog\page.html.py:31
-#: .\templates\themes\beijing2008\blog\post.html.py:13
-#: .\templates\themes\beijing2008\blog\post.html.py:31
+#: .\templates\themes\beijing2008\blog\page.html.py:14
+#: .\templates\themes\beijing2008\blog\page.html.py:33
+#: .\templates\themes\beijing2008\blog\post.html.py:14
+#: .\templates\themes\beijing2008\blog\post.html.py:32
 #: .\templates\themes\default\blog\list.html.py:20
-#: .\templates\themes\default\blog\page.html.py:39
-#: .\templates\themes\default\blog\post.html.py:46
+#: .\templates\themes\default\blog\page.html.py:42
+#: .\templates\themes\default\blog\post.html.py:49
+#: .\templates\themes\naver\blog\list.html.py:22
 #: .\templates\themes\techicon\blog\list.html.py:39
-#: .\templates\themes\techicon\blog\page.html.py:33
-#: .\templates\themes\techicon\blog\post.html.py:33
-#: .\templates\themes\techicon\blog\post.html.py:43
+#: .\templates\themes\techicon\blog\page.html.py:34
+#: .\templates\themes\techicon\blog\post.html.py:34
+#: .\templates\themes\techicon\blog\post.html.py:44
 #: .\templates\wap\page.html.py:20
 #: .\templates\wap\page.html.py:24
 #: .\templates\wap\post.html.py:22
@@ -279,32 +282,48 @@ msgstr "评论"
 msgid "Comments"
 msgstr "评论"
 
-#: .\blog\models.py:246
+#: .\blog\models.py:245
 msgid "Image"
 msgstr "图片"
 
-#: .\blog\models.py:248
+#: .\blog\models.py:247
 msgid "Order"
 msgstr "排序"
 
-#: .\blog\models.py:249
+#: .\blog\models.py:248
 msgid "Minimal at front"
 msgstr "值小的靠前"
 
-#: .\blog\models.py:261
+#: .\blog\models.py:260
 msgid "Link"
 msgstr "链接"
 
-#: .\blog\models.py:262
-#: .\templates\themes\beijing2008\base.html.py:95
-#: .\templates\themes\default\base.html.py:84
-#: .\templates\themes\techicon\base.html.py:111
+#: .\blog\models.py:261
+#: .\templates\themes\beijing2008\base.html.py:94
+#: .\templates\themes\default\base.html.py:82
+#: .\templates\themes\naver\blog\list.html.py:53
+#: .\templates\themes\techicon\base.html.py:108
 msgid "Links"
 msgstr "链接"
 
+#: .\blog\models.py:265
+msgid "SettingName"
+msgstr "设置名称"
+
+#: .\blog\models.py:266
+msgid "SettingValue"
+msgstr "值"
+
+#: .\blog\models.py:274
+msgid "Setting"
+msgstr "站点设置"
+
+#: .\blog\models.py:275
+msgid "Settings"
+msgstr "站点设置"
+
 #: .\blog\views.py:35
 #: .\templates\blog\tags\menu.html.py:2
-#: .\templates\themes\default\blog\tags\menu.html.py:3
 #: .\templates\wap\tags\menu.html.py:1
 #: .\wap\views.py:27
 msgid "Home"
@@ -312,14 +331,14 @@ msgstr "首页"
 
 #: .\blog\views.py:56
 #: .\blog\views.py:110
-#: .\blog\views.py:254
+#: .\blog\views.py:266
 #: .\wap\views.py:47
 msgid "The confirmation code you entered was incorrect!"
 msgstr "您输入的验证码不正确！"
 
 #: .\blog\views.py:77
 #: .\blog\views.py:126
-#: .\blog\views.py:280
+#: .\blog\views.py:292
 #: .\tests\tests.py:130
 #: .\wap\views.py:61
 #: .\wap\views.py:108
@@ -351,32 +370,28 @@ msgstr "Pylogs管理"
 msgid "Please correct the errors below"
 msgstr "请纠正以下错误"
 
-#: .\templates\blog\comment_form.html.py:101
+#: .\templates\blog\comment_form.html.py:9
 msgid "Leave You Comment"
 msgstr "评论这篇文章"
 
-#: .\templates\blog\comment_form.html.py:130
+#: .\templates\blog\comment_form.html.py:38
 msgid "Submit Comment"
 msgstr "发表评论"
 
-#: .\templates\blog\tags\archivelist.html.py:12
-#: .\templates\themes\default\blog\tags\archivelist.html.py:12
+#: .\templates\blog\tags\archivelist.html.py:9
 msgid "No Archive Now"
 msgstr "暂时没有存档"
 
-#: .\templates\blog\tags\category.html.py:12
-#: .\templates\themes\default\blog\tags\category.html.py:12
+#: .\templates\blog\tags\category.html.py:9
 msgid "No Category Now"
 msgstr "暂时没有分类"
 
-#: .\templates\blog\tags\links.html.py:12
+#: .\templates\blog\tags\links.html.py:9
 #: .\templates\blog\tags\recent_comments.html.py:8
-#: .\templates\themes\default\blog\tags\links.html.py:12
 msgid "No Links Now"
 msgstr "暂时没有链接"
 
 #: .\templates\blog\tags\menu.html.py:3
-#: .\templates\themes\default\blog\tags\menu.html.py:4
 msgid "Todo"
 msgstr "Todo"
 
@@ -418,77 +433,76 @@ msgstr "最后修改"
 msgid "View File"
 msgstr "查看文件"
 
-#: .\templates\themes\beijing2008\base.html.py:81
+#: .\templates\themes\beijing2008\base.html.py:80
 msgid "Feeds"
 msgstr "Feeds"
 
-#: .\templates\themes\beijing2008\base.html.py:87
+#: .\templates\themes\beijing2008\base.html.py:86
 msgid "Menu"
 msgstr "Menu"
 
-#: .\templates\themes\beijing2008\base.html.py:91
+#: .\templates\themes\beijing2008\base.html.py:90
 #: .\templates\themes\techicon\blog\list.html.py:9
 msgid "Latest Posts"
 msgstr "最新文章"
 
-#: .\templates\themes\beijing2008\base.html.py:104
-#: .\templates\themes\default\base.html.py:71
-#: .\templates\themes\techicon\base.html.py:103
+#: .\templates\themes\beijing2008\base.html.py:103
+#: .\templates\themes\default\base.html.py:69
+#: .\templates\themes\naver\blog\list.html.py:48
+#: .\templates\themes\techicon\base.html.py:100
 msgid "Archives"
 msgstr "存档"
 
 #: .\templates\themes\beijing2008\blog\list.html.py:11
-#: .\templates\themes\beijing2008\blog\page.html.py:12
-#: .\templates\themes\beijing2008\blog\post.html.py:13
+#: .\templates\themes\beijing2008\blog\page.html.py:14
+#: .\templates\themes\beijing2008\blog\post.html.py:14
 #: .\templates\themes\default\blog\list.html.py:20
-#: .\templates\themes\default\blog\page.html.py:18
-#: .\templates\themes\default\blog\post.html.py:18
+#: .\templates\themes\default\blog\page.html.py:21
+#: .\templates\themes\default\blog\post.html.py:21
+#: .\templates\themes\naver\blog\list.html.py:22
 #: .\templates\themes\techicon\blog\list.html.py:39
-#: .\templates\themes\techicon\blog\page.html.py:13
-#: .\templates\themes\techicon\blog\post.html.py:18
+#: .\templates\themes\techicon\blog\page.html.py:14
+#: .\templates\themes\techicon\blog\post.html.py:19
 #: .\templates\wap\page.html.py:9
 #: .\templates\wap\post.html.py:10
 msgid "Views"
 msgstr "阅读"
 
-#: .\templates\themes\beijing2008\blog\list.html.py:19
-#: .\templates\themes\default\blog\list.html.py:26
-#: .\templates\themes\techicon\blog\list.html.py:44
-#: .\templates\wap\list.html.py:8
-msgid "Prev"
-msgstr "上一页"
-
-#: .\templates\themes\beijing2008\blog\list.html.py:20
-#: .\templates\themes\default\blog\list.html.py:27
-#: .\templates\themes\techicon\blog\list.html.py:45
-#: .\templates\wap\list.html.py:9
-msgid "Next"
-msgstr "下一页"
-
-#: .\templates\themes\beijing2008\blog\page.html.py:37
-#: .\templates\themes\beijing2008\blog\post.html.py:37
-#: .\templates\themes\default\blog\page.html.py:42
-#: .\templates\themes\default\blog\post.html.py:52
-#: .\templates\themes\techicon\blog\page.html.py:38
-#: .\templates\themes\techicon\blog\post.html.py:48
+#: .\templates\themes\beijing2008\blog\page.html.py:39
+#: .\templates\themes\beijing2008\blog\post.html.py:38
+#: .\templates\themes\default\blog\page.html.py:45
+#: .\templates\themes\default\blog\post.html.py:55
+#: .\templates\themes\techicon\blog\page.html.py:39
+#: .\templates\themes\techicon\blog\post.html.py:49
 #: .\templates\wap\page.html.py:28
 #: .\templates\wap\post.html.py:33
 msgid "Post at"
 msgstr "发表于"
 
-#: .\templates\themes\default\base.html.py:101
+#: .\templates\themes\default\base.html.py:99
 msgid "Syndication"
 msgstr "聚合"
 
-#: .\templates\themes\default\base.html.py:118
+#: .\templates\themes\default\base.html.py:116
 msgid "Pylogs Project"
 msgstr "Pylogs 项目"
 
-#: .\templates\themes\default\base.html.py:121
+#: .\templates\themes\default\base.html.py:119
 msgid "Contact Me"
 msgstr "联系我"
 
-#: .\templates\themes\techicon\base.html.py:94
+#: .\templates\themes\naver\blog\list.html.py:27
+#: .\templates\wap\list.html.py:8
+msgid "Prev"
+msgstr "上一页"
+
+#: .\templates\themes\naver\blog\list.html.py:28
+#: .\templates\wap\list.html.py:9
+msgid "Next"
+msgstr "下一页"
+
+#: .\templates\themes\naver\blog\list.html.py:38
+#: .\templates\themes\techicon\base.html.py:91
 msgid "Subscribe to my blog using RSS"
 msgstr "通过RSS订阅本站更新"
 
@@ -630,8 +644,9 @@ msgstr "Todo任务"
 
 #~ msgid "Pylogs: Latest Posts"
 #~ msgstr "Pylogs:最新文章"
+
 #~ msgid "logging your life..."
 #~ msgstr "logging your life..."
+
 #~ msgid "File type is not allowed!"
 #~ msgstr "不允许的文件类型！"
-

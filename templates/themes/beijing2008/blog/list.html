@@ -3,7 +3,7 @@
 {% block title %}{{pagetitle}} - {{ block.super }} {% endblock %}
 
 {% block content %}
-{% for post in posts %}
+{% for post in ol.object_list %}
 <div class="content">
 <div class="post" id="post-11">
 <h1><a href="{{post.get_absolute_url}}" >{{post.title}}</a></h1></div>
@@ -15,10 +15,8 @@
 </div>
 <div class="tag_tb"></div></div>
     {% endfor %}
-<div id="pagenavi">
-<div class="alignright">{% if prev_page %}<a href="?page={{prev_page}}">&laquo;{% trans "Prev" %}</a>{% endif %}
-    {% if next_page%}<a href="?page={{next_page}}">{% trans "Next" %}&raquo;</a>{% endif %} </div>
-        <div class="alignright"></div>
-</div>
+<!--Start of pagger-->
+{% paginator ol %}
+<!--End of pagger-->
 {% endblock %}
 
