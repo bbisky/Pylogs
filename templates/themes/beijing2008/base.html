@@ -8,8 +8,7 @@
 <meta name="keywords" content="{%site_keywords%}"/>
 <meta name="description" content="{%site_description%}"/>
 {%endblock%}
-<meta content="MSHTML 6.00.6001.18063" name="GENERATOR" />
-<meta content="Pylogs 1.12" name="generator" />
+<meta content="Pylogs" name="generator" />
 <link rel="stylesheet" href="{%theme_media_url%}/css/style.css" type="text/css" media="screen"/>
 <link rel="alternate" type="application/rss+xml" title="{%site_name%} Rss Feed" href='{% url feeds url="rss" %}'/>
 <link rel="alternate" type="application/rss+xml" title="{%site_name%} Atom Feed" href='{% url feeds url="atom" %}'/>
@@ -84,7 +83,7 @@
 </li>
 <li class="pagenav">
 <h2>{%trans "Menu"%}</h2>
-    {% get_menus %}      
+    {% site_menu %}      
 </li>
 <li class="newpost">
 <h2>{% trans "Latest Posts" %}</h2>
@@ -111,7 +110,7 @@ href="http://pylogs.googlecode.com/">Pylogs{% get_version %}</a> , BeiJing2008 T
 <script language="javascript">
 window.onload = function(){
 dp.SyntaxHighlighter.BloggerMode();
-dp.SyntaxHighlighter.ClipboardSwf = '/media/js/clipboard.swf';
+dp.SyntaxHighlighter.ClipboardSwf = '{%media_url%}/js/clipboard.swf';
 dp.SyntaxHighlighter.HighlightAll('code');
 }
 </script>

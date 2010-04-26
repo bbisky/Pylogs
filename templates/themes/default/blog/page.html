@@ -1,4 +1,4 @@
-{% load i18n themes %}
+{% load i18n themes posttags%}
 {% theme_extends "base.html" %}
 {% block title %}{{post.title}}-{{ block.super }}{% endblock %}
 {% block meta %}<meta content="{{post.title}}" name="keywords"/>
@@ -41,13 +41,13 @@
     <div id="comments">
         <span class="commenttitle"><a name="comments"></a>{% trans "Comments" %}</span>
         <ul>
-        {% for cmt in post.get_comments%}
+        {% for cmt in comments.object_list%}
            <li><strong>{{cmt.comment_author}}</strong> {% trans "Post at" %} {{cmt.comment_date|date:"Y-m-d H:i:s"}}          
            <br/>
           {{cmt.comment_content|linebreaks }}     
            </li>
         {% endfor %}
-        </ul>
+        </ul>{%paginator comments '#comments'%}
     </div>
 {% endifnotequal %} 
     

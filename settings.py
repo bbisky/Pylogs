@@ -1,5 +1,6 @@
 #-*- coding:utf-8 -*-
 from os import path
+
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 #DEBUG_RPC = True
@@ -74,6 +75,6 @@ INSTALLED_APPS = (
 #DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False }
 
 
-VERSION = (1, 15, 'beta')	
+VERSION = (1, 16, 'beta')	
 
 #INTERNAL_IPS = ('127.0.0.1',)

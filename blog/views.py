@@ -140,13 +140,16 @@ def page(request,pagename):
                                                     PAGE_SIZE
                           )
         pageid = int(request.GET.get('page', 1))
+        from templatetags.filters import pageclass
+        tab = pageclass(page.id)
         
         return render_to_response(theme_template_url()+ '/blog/page.html',
                                   {'post':page,
                                     'form':form,
                                     'comments':comments.page(pageid),
                                     'msg':msg,
-                                    'error':error},
+                                    'error':error,
+                                    'tab': tab},
                                   context_instance=RequestContext(request))        
     else:
         raise Http404()
@@ -218,7 +221,7 @@ def tags(request,tagname = None):
             pagedPosts = Paginator(tag.post_set.all().filter(post_type__iexact='post',
                                                                    post_status__iexact = models.POST_STATUS[0][0]),
                                     PAGE_SIZE)
-        return renderPaggedPosts(pageid,tag.name,pagedPosts,False,request)
+        return renderPaggedPosts(pageid,tag.name,pagedPosts,False,request,tab='tags')
     else:
         #taglist page        
         max = Tags.objects.all().order_by('-reference_count')[:1]
@@ -230,24 +233,17 @@ def tags(request,tagname = None):
         for tag in tags:
             tag.reference_count = tag.reference_count * 10/max
         return render_to_response(theme_template_url()+ '/blog/tags.html',
-                                  {'tags':tags,'max':max},
+                                  {'tags':tags,'max':max,'tab':'tags'},
                                   context_instance=RequestContext(request))
 
-def renderPaggedPosts(pageid,pageTitle,pagedPosts,showRecent = False,request=None):   
+def renderPaggedPosts(pageid,pageTitle,pagedPosts,showRecent = False,request=None,tab='home'):   
     #no post return only title
     if pagedPosts.count <=0:
         return render_to_response(theme_template_url()+ '/blog/list.html',
-                                  {'pagetitle':pageTitle},
+                                  {'pagetitle':pageTitle,'tab':tab},
                                   context_instance=RequestContext(request))
     currentPage = pagedPosts.page(pageid)
-    data = {'pagetitle':pageTitle,'ol':currentPage}
-    if currentPage.has_next():
-        data["next_page"] = pageid +1
-    if currentPage.has_previous():
-        data["prev_page"] = pageid -1
-    if showRecent:
-        data["show_recent"] = showRecent    
-    context = None
+    data = {'pagetitle':pageTitle,'ol':currentPage,'tab':tab}    
     if request:
         context = RequestContext(request)
     return render_to_response(theme_template_url()+ '/blog/list.html',

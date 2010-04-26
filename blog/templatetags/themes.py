@@ -85,6 +85,5 @@ def theme_template_url():
     """
     Returns the themes template url
     """
-    url = 'themes/'+ get_theme_name()
-    print 'theme_template_url:%s' % url
+    url = 'themes/'+ get_theme_name()    
     return url

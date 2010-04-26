@@ -70,5 +70,6 @@ urlpatterns += patterns('blog.views',
                         url(r'^category/(?P<catid>\d+)/$','categoryView',name="category_id"),
                         url(r'^category/(?P<catname>[^/]+)/$','categoryView',name="category_name"),                        
                         (r'^(?P<year>\d{4})/(?P<month>(\d{1,2})?)/?(?P<date>(\d{1,2})?)/?$','dateposts'),
-                        url(r'^(?P<pagename>\w+)/$','page',name='page'),                        
+                        url(r'^(?P<pagename>\w+)/$','page',name='page'),
+                        url(r'^(.+?)(?P<pagename>\w+)/$','page',name='page'),                      
                         )

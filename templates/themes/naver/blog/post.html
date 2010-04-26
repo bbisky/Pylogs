@@ -1,0 +1,63 @@
+{% load i18n themes posttags render%}
+{% theme_extends "base.html" %}
+{% block title %}{{post.title}}-{{ block.super }} {% endblock %}
+{% block meta %}<meta content="{{post.title}},Pylogs" name="keywords"/>
+<meta name="description" content="{{post.content|striptags|truncatewords_html:30}}"/>{%endblock%}
+{% block script %}<script language="javascript" type="text/javascript" src="{%media_url%}/js/jquery.pack.js" ></script>
+<script type="text/javascript" src="{%media_url%}/js/common.js"></script>
+<script type="text/javascript" src="{%media_url%}/js/highslide.packed.js"></script>
+<script type="text/javascript" src="{%media_url%}/js/shCore.js"></script>
+<script type="text/javascript" src="{%media_url%}/js/shBrushes.js"></script>
+<link rel="stylesheet" href="{%media_url%}/css/SyntaxHighlighter.css" type="text/css" media="screen" >
+<link rel="stylesheet" href="{%media_url%}/css/code.css" type="text/css" media="screen" >
+<link rel="stylesheet" href="{%media_url%}/css/highslide.css" type="text/css" media="screen">
+<script language="javascript">
+window.onload = function(){
+dp.SyntaxHighlighter.BloggerMode();
+dp.SyntaxHighlighter.ClipboardSwf = '{%media_url%}/js/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+}
+</script>
+{%endblock%}
+{% block content %}
+           <h2>
+                  <a href="{{post.get_absolute_url}}">{{post.title}}</a>
+                </h2>
+              <small>{% trans "Pubdate" %}:<abbr title="post time">{{post.pubdate|date:"Y-m-d H:i:s"}}</abbr>
+              &nbsp;&nbsp;<!--Categories--> {%trans "Categories" %}:
+              {% for cat in post.category.all %}
+              <a href="{{cat.get_absolute_url}}" rel="category tag">{{cat.name}}</a>{% if not forloop.last %},{% endif %}
+              {% endfor %}&nbsp;&nbsp;
+              {{post.hits}} {% trans "Views" %}&nbsp;&nbsp;
+            <a href="{{post.get_absolute_url}}#comments">{% trans "Comments" %}({{post.comment_count}})</a>
+            
+              {% if post.tags.all %}
+              <!--tags-->
+              <br/>{%trans "Tags" %}:
+              {% for tag in post.tags.all %}
+              <a href="{{tag.get_absolute_url}}">{{tag.name}}</a>{% if not forloop.last %},{% endif %}
+              {% endfor %}
+              {% endif %}
+              </small>                            
+                <div class="postbg">
+                      {{post.content|markup:post.markup|safe}}     
+                </div>             
+                <h2>{% trans "Related" %}</h2>
+                {%get_tagged_posts post.tags.all 5 post.id%}
+           {% ifnotequal 0 post.comment_count %}   
+              <!--Start of comments-->    
+              <div id="comments">
+                  <span class="commenttitle"><a name="comments"></a>{% trans "Comments" %}</span>
+                  <ul>
+                  {% for cmt in comments.object_list%}
+                     <li class="{% cycle alt1,alt2,alt3 %}">
+                      <strong>{% if cmt.comment_author_url %}<a href="{{cmt.comment_author_url}}" target="_blank">{{cmt.comment_author}}</a>{% else %}{{cmt.comment_author}}{% endif %}</strong>
+                      <span class="byline">{% trans "Post at" %} {{cmt.comment_date|date:"Y-m-d H:i:s"}}</span>
+                     {{cmt.comment_content|linebreaks }}             
+                     </li>
+                  {% endfor %}
+                  </ul>{%paginator comments '#comments'%}
+              </div>
+           {% endifnotequal %}   
+              {% include "blog/comment_form.html" %}           
+  {%endblock%}

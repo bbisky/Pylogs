@@ -64,11 +64,7 @@ class Tags(models.Model):
         #ordering = ['-pubdate']
         verbose_name=_('Tag')
         verbose_name_plural = _('Tags')
-    
-    class Admin():
-        list_display = ('name','slug','reference_count')
-        search_fields = ['name']
- 
+
 class Category(models.Model):
     '''category entity'''    
     name = models.CharField(_('Name'),max_length=255,unique=True)
@@ -97,10 +93,6 @@ class Category(models.Model):
         ordering=['name']
         verbose_name=_('Category')
         verbose_name_plural = _('Categories')
-    
-    class Admin:
-        list_display = ('name','desc')
-        search_fields = ['name']
 
 class Post(models.Model):    
     '''Post Entity'''
@@ -146,7 +138,12 @@ class Post(models.Model):
     def get_absolute_url(self):
         #if is page,return page url
         if self.post_type == POST_TYPES[1][0]:
-            return reverse('page',args=[self.post_name])
+            if self.post_parent == None:                
+                return reverse('page',args=[self.post_name])
+            else:                
+                #child pages url join the parents url
+                from urlparse import urljoin            
+                return urljoin(self.post_parent.get_absolute_url(), self.post_name + '/')
         else:
             if self.post_name:
                 return reverse('post_name',args=[self.pubdate.year,
@@ -180,16 +177,7 @@ class Post(models.Model):
     class Meta:
         ordering = ['-pubdate']
         verbose_name=_('Post')
-        verbose_name_plural = _('Posts')
-       
-    class Admin:
-        list_display = ('title','get_cat_str','pubdate','hits')
-        search_fields = ['title']
-        list_filter =('post_type','category')
-        js = (
-                '/media/js/tiny_mce/tiny_mce.js',
-                '/media/js/admin_textarea.js',
-            )
+        verbose_name_plural = _('Posts')    
 
 class Comments(models.Model):
     '''user comments'''
@@ -228,13 +216,7 @@ class Comments(models.Model):
     class Meta:
         ordering = ['-comment_date']
         verbose_name=_('Comment')
-        verbose_name_plural = _('Comments')
-
-    class Admin:
-        list_filter =('comment_approved',)
-        list_display = ('comment_author','comment_author_email',
-                        'comment_date','comment_approved')
-        search_fields = ['comment_author']
+        verbose_name_plural = _('Comments')   
 
 class Links(models.Model):
     '''Friend links entity'''

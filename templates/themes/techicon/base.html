@@ -61,7 +61,7 @@
 </div>
 <div id="topbarleft">
     <div id="navigation">
-        {% get_menus %}        
+        {% site_menu %}        
     </div>
 </div>
 
@@ -132,7 +132,7 @@ Powered by <a href="http://code.google.com/p/pylogs/" style="color:#ff9900; font
 <script language="javascript">
 window.onload = function(){
 dp.SyntaxHighlighter.BloggerMode();
-dp.SyntaxHighlighter.ClipboardSwf = '/media/js/clipboard.swf';
+dp.SyntaxHighlighter.ClipboardSwf = '{%media_url%}/js/clipboard.swf';
 dp.SyntaxHighlighter.HighlightAll('code');
 }
 </script>

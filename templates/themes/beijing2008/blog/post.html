@@ -24,14 +24,14 @@
 {{post.content|markup:post.markup|safe}}
 </div>
 <div class="tag_tb">
-     <h2>相关文章</h2>
+     <h2>{% trans "Related" %}</h2>
       {%get_tagged_posts post.tags.all 5 post.id%}
 </div></div>
 <div id="comments">
      <div class="content" style="background:none;">
 	<h1><a name="comments"></a>{{post.comment_count}}{%trans "Comments" %}</h1>
 	<ol class="commentlist">
-          {% for cmt in post.get_comments%}
+          {% for cmt in comments.object_list%}
            <li class="{% cycle alt,alt2 %}">
            {% if cmt.comment_author_url %}<a href="{{cmt.comment_author_url}}" target="_blank">{{cmt.comment_author}}</a>{% else %}{{cmt.comment_author}}{% endif %}:
            <br/>
@@ -39,7 +39,7 @@
            <p>{{cmt.comment_content|linebreaks }}</p>        
            </li>
         {% endfor %}
-	</ol> 
+	</ol> {%paginator comments '#comments'%}
         {% include "blog/comment_form.html" %}
 </div>
 </div>

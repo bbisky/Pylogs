@@ -112,7 +112,7 @@ code {font-size:1.0em;color: #000}
 #comments li{margin:0; margin-bottom:1em; border-bottom:1px dashed #BFC8CF; padding-left:1em;}
 #comments li.alt1{border-left:5px solid rgb(195, 217, 255); background-color:#F6F9FE;}
 #comments li.alt2{border-left:5px solid rgb(205, 235, 139); background-color:#F6F9FE;}
-#comments li.alt3{border-left:5px solid #FFFFCC; background:#F6F9FE-color;}
+#comments li.alt3{border-left:5px solid #FFFFCC; background-color:#F6F9FE;}
 #commentform{clear:both;margin-top:1em;}
 .form-row {border-bottom:1px solid #EEEEEE;font-size:100%;overflow:hidden;padding:8px 12px;}
 #commentform label{display:block;float:left;padding:0pt 1em 3px 0pt;width:6em;}

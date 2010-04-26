@@ -34,3 +34,11 @@ def priority_name(value):
     else:
         return 'low'    
 register.filter('priority_name',priority_name)
+
+def pageclass(value):
+    '''
+    the page css class name
+    '''
+    value = int(value)
+    return 'page%d' % (value % 4 + 1)
+register.filter(pageclass)

@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 from django.template import Library
-from blog.models import Post,Category,Comments, POST_STATUS
+from blog.models import Post,Category,Comments, POST_STATUS,POST_TYPES
 from django.utils.dateformat import format
 from blog.templatetags.themes import theme_template_url
 
@@ -70,7 +70,19 @@ def get_latest_comments(context):
     return {'comments':comments}
 register.inclusion_tag('blog/tags/recent_comments.html',
                         takes_context=True)(get_latest_comments)
-                        
+
+def get_child_pages(context,pageid):
+    '''
+    get child pages
+    '''
+    pages = Post.objects.filter(post_type__exact=POST_TYPES[1][0],
+                                    post_status__exact = POST_STATUS[0][0],
+                                    post_parent__id__exact = pageid).order_by('menu_order')
+    return {'childpages':pages}
+register.inclusion_tag('blog/tags/childpages.html',
+                         takes_context=True)(get_child_pages)
+ 
+
 def paginator(ol,querystr=''):
     '''
     paginator tag

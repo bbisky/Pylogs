@@ -1,0 +1,13 @@
+{% load i18n themes %}
+{% theme_extends "base.html" %}
+{% block title %}{%trans "Tags" %}-{{ block.super }} {% endblock %}
+{% block content %}
+           <h2>
+                   {%trans "Tags" %}
+                 </h2> 
+                 <div class="postbg">      
+               {% for tag in tags %}
+               <a href="{{tag.get_absolute_url}}" class="tags font_{{tag.reference_count}}">{{tag.name}}</a>&nbsp;&nbsp;
+               {% endfor %}
+                 </div>           
+{%endblock%}

@@ -1,10 +1,7 @@
-{% load i18n themes links  posttags render%}
+{% load i18n themes posttags render%}
 {% theme_extends "base.html" %}
 {% block title %}{{pagetitle}} - {{ block.super }} {% endblock %}
 {% block content %}
-<div id="before_login">
-                <div class="content" id="before_login_content">
-                  <div class="visual">
             {% for post in ol.object_list %}
                 <div class="post">
                   <h2>
@@ -16,58 +13,12 @@
                     <p>
                      {{post.content|markup:post.markup|safe|truncatewords_html:"20"}}
                     </p>
-                  </div>
-                <br/>
-                <small><img title="Comments" height="16" src="{% media_url %}/images/comment.gif" width="16" align="absmiddle">
+                  </div>                
+                <small><img title="Comments" height="16" src="{% media_url %}/images/comment.gif" width="16" align="absmiddle"/>
                   <a href="{{post.get_absolute_url}}#newcomments">{% trans "Comments" %}({{post.comment_count}})</a> | {{post.hits}} {% trans "Views" %}</small><br>
                </div>      
                 {% endfor %}
             <!--Start of pagger-->
             {%paginator ol%}
-            <!--End of pagger-->
-            
-		
-                  </div>
-                  <div class="aside">
-                <div class="logbox">                     
-                          <img src="{% theme_media_url %}/images/feed.png" style="padding-right: 10px;" alt="FEED" align="left">
-                              <a href='{% url feeds url="rss" %}' title='{% trans "Subscribe to my blog using RSS" %}'><b>{% trans "Subscribe to my blog using RSS" %}</b></a>
-                    <br/><br/>
-                    </div>
-                    <div class="sidebar"> 
-                     <dl>
-                                           <dt>{% trans "Categories" %}</dt>
-                                         
-                                         </dl>
-                     {% get_categories %} 
-                    <dl>
-                       <dt>{% trans "Archives" %}</dt>
-                      
-                    </dl>
-                    {% get_archivelist %}
-                      <dl>
-                       <dt>{% trans "Links" %}</dt>
-                       </dl>
-                      {% get_links %}
-                      <dl>
-                                             <dt>Meta</dt>
-                                             </dl>
-                      <ul>                      
-                                                   <li><a href="http://www.python.org" target="_blank"><img src="{% theme_media_url %}/images/python-powered.png" border="0" title="main program language is Python" alt="python"/></a></li>
-                                                   <li><a href="http://www.djangoproject.com" target="_blank"><img src="{% theme_media_url %}/images/djangoproject.gif" border="0" title="django web framework" alt="django"/></a></li>
-                                                   <li><a href="http://jquery.com" target="_blank"><img src="{% theme_media_url %}/images/jquery_logo.gif" title="javascript framework used jQuery" border="0" alt="jquery"/></a></li>
-                                                   <li><a href="/admin/">{%if user.is_authenticated%}Admin{%else%}Login{%endif%}</a></li>
-                      </ul>
-                      
-                      </div>
-                   
-                  </div>
-                  <div class="cb"></div>
-                </div>
-                <div class="footer" id="before_login_footer">
-                  <address>
-                  Copyright&copy; <em>struct.cn.</em> All Rights Reserved.
-                  </address>
-                </div>
-              </div>
-{% endblock %}
+            <!--End of pagger-->    
+{%endblock%}

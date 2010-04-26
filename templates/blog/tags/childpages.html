@@ -1,0 +1,7 @@
+{% if childpages %}
+<ul class="innerul">
+{% for page in childpages %}
+    <li><a href="{{page.get_absolute_url}}" title="{{page.title}}">{{page.title}}</a></li>
+{% endfor %}
+</ul>
+{% endif %}

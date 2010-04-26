@@ -1,0 +1,9 @@
+{%load i18n filters%}
+<ul class="menu">
+<li {%ifequal 'home' tab %}class="on"{%endifequal%}><a href="/" class="home"><span>{%trans "Home"%}</span></a><span class="beta"><span class="blind">BETA</span></span></li>
+<li {%ifequal 'todo' tab %}class="on"{%endifequal%}><a href="{%url todo%}" class="todo"><span>{%trans "Todo"%}</span></a></li>
+<li {%ifequal 'tags' tab %}class="on"{%endifequal%}><a href="{%url tags%}" class="tags"><span>{%trans "Tags"%}</span></a></li>
+    {% for menu in menus %}
+    <li {%ifequal menu.id|pageclass tab %}class="on"{%endifequal%}><a href="{{menu.get_absolute_url}}" class="{{menu.id|pageclass}}"><span>{{menu.title|safe}}</span></a></li>
+    {% endfor %}
+</ul>

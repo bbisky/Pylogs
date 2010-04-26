@@ -34,7 +34,7 @@
       <small><a href="{{post.get_absolute_url}}#newcomments">{% trans "Comments" %}({{post.comment_count}})</a><br>
       </small>
       <br/>
-      <h2>相关文章</h2>
+      <h2>{% trans "Related" %}</h2>
       {%get_tagged_posts post.tags.all 5 post.id%}
    </div>
  
@@ -43,7 +43,7 @@
     <div id="comments">
         <span class="commenttitle"><a name="comments"></a>{% trans "Comments" %}</span>
         <ul>
-        {% for cmt in post.get_comments%}
+        {% for cmt in comments.object_list%}
            <li class="{% cycle alt1,alt2,alt3 %}">
             <strong>{% if cmt.comment_author_url %}<a href="{{cmt.comment_author_url}}" target="_blank">{{cmt.comment_author}}</a>{% else %}{{cmt.comment_author}}{% endif %}</strong>
             <span class="byline">{% trans "Post at" %} {{cmt.comment_date|date:"Y-m-d H:i:s"}}</span>
@@ -51,6 +51,7 @@
            </li>
         {% endfor %}
         </ul>
+        {%paginator comments '#comments'%}
     </div>
  {% endifnotequal %}   
     {% include "blog/comment_form.html" %}

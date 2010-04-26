@@ -1,4 +1,4 @@
-{% load i18n themes render%}
+{% load i18n themes posttags render%}
 {% theme_extends "base.html" %}
 {% block title %}{{post.title}}-{{ block.super }} {% endblock %}
 {% block meta %}<meta content="{{post.title}},Pylogs" name="keywords"/>
@@ -48,7 +48,7 @@
     <div id="comments">
         <span class="commenttitle"><a name="comments"></a>{% trans "Comments" %}</span>
         <ul>
-        {% for cmt in post.get_comments%}
+        {% for cmt in comments.object_list%}
            <li class="{% cycle alt1,alt2,alt3 %}">
             <strong>{% if cmt.comment_author_url %}<a href="{{cmt.comment_author_url}}" target="_blank">{{cmt.comment_author}}</a>
             {% else %}{{cmt.comment_author}}
@@ -57,7 +57,7 @@
           {{cmt.comment_content|linebreaks }}     
            </li>
         {% endfor %}
-        </ul>
+        </ul>{%paginator comments '#comments'%}
     </div>
  {% endifnotequal %}
         {% include "blog/comment_form.html" %}
