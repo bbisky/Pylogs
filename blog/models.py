@@ -36,6 +36,15 @@ MARKUP_LANGUAGE_CHOICES = (
     ("html",_("HTML")),
     ("markdown",_("MARKDOWN")),
 )
+#avaliable site setting fields
+SITE_SETTING_FIELDS =(
+    ('SiteName',_('SiteName')),
+    ('SiteSubTitle',_('SiteSubTitle')),
+    ('SiteKeywords',_('SiteKeywords')),
+    ('SiteDescription',_('SiteDescription')),
+    ('Theme',_('Theme')),
+    ('AuthorName',_('AuthorName')),
+)
 
 class Tags(models.Model):
     '''Tag entity'''
@@ -173,7 +182,6 @@ class Post(models.Model):
                                             COMMENT_APPROVE_STATUS[1][0]).order_by('id')       
         return comments
     
-    
     class Meta:
         ordering = ['-pubdate']
         verbose_name=_('Post')
@@ -244,7 +252,8 @@ class Links(models.Model):
 
 class Setting(models.Model):
     '''blog setting options'''
-    setting_name = models.CharField(_('SettingName'), max_length=32, unique=True)
+    from utils.themes import get_available_themes
+    setting_name = models.CharField(_('SettingName'), max_length=32, unique=True,choices=SITE_SETTING_FIELDS)
     setting_value = models.CharField(_('SettingValue'),max_length=255, null=True, blank=True)
     setting_desc = models.CharField(_('Description'),null=True,blank=True,
                                  max_length=255)
