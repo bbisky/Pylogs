@@ -8,13 +8,18 @@
 <meta name="keywords" content="{%site_keywords%}"/>
 <meta name="description" content="{%site_description%}"/>
 {%endblock%}
+<script type="text/javascript" src="{%media_url%}/js/jquery.pack.js"></script>
     <script type="text/javascript" src="{% media_url %}/js/highslide.packed.js"></script>
-    <link rel="stylesheet" href="{% theme_media_url %}/css/screen.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="{% media_url %}/css/code.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="{% media_url %}/css/highslide.css" type="text/css" media="screen">
-    <link rel="alternate" type="application/rss+xml" title="{%site_name%} Rss Feed" href="http://feed.feedsky.com/pylogs">
-    <link rel="alternate" type="application/rss+xml" title="{%site_name%} Atom Feed" href="http://feed.feedsky.com/pylogs_atom">
+    <link rel="stylesheet" href="{% theme_media_url %}/css/screen.css" type="text/css" media="screen"/>
+    <link rel="stylesheet" href="{% media_url %}/css/highslide.css" type="text/css" media="screen"/>
+    <link rel="alternate" type="application/rss+xml" title="{%site_name%} Rss Feed" href="http://feed.feedsky.com/pylogs"/>
+    <link rel="alternate" type="application/rss+xml" title="{%site_name%} Atom Feed" href="http://feed.feedsky.com/pylogs_atom"/>
     {% block script %}{% endblock %}
+<script type="text/javascript" language="javascript">
+//for syntax highlight
+_media_root = '{%media_url%}';
+</script>
+<script type="text/javascript" src="{%media_url%}/js/syntax-highlight.js"></script>
   </head>
   <body>
     <div id="container">

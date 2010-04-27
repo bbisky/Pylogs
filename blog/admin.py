@@ -75,11 +75,11 @@ class CommentsAdmin(admin.ModelAdmin):
         '''
         rows_updated = queryset.update(comment_approved= COMMENT_APPROVE_STATUS[1][0])
         if rows_updated == 1:
-            message_bit = '1 comment was'
+            message_bit = _('1 comment was')
         else:
-            message_bit = '%s comments were' % rows_updated
-        self.message_user(request, "%s successfully marked as approved." % message_bit)
-    make_approved.short_description = "Mark selected comments as approved"
+            message_bit = _('%s comments were') % rows_updated
+        self.message_user(request, _("%s successfully marked as approved.") % message_bit)
+    make_approved.short_description = _("Mark selected comments as approved")
     
     
 class LinksAdmin(admin.ModelAdmin):
@@ -97,21 +97,24 @@ class LinksAdmin(admin.ModelAdmin):
 class SettingForm(forms.ModelForm):
     '''
     validate the site setting values
-    '''
+    '''    
     class Meta:
         model = Setting
-    def clean_setting_value(self):        
-        if self.cleaned_data['setting_name'] == 'Theme':
+    def clean_setting_value(self):
+        if self.cleaned_data['setting_name'] == 'Theme':            
             theme = self.cleaned_data['setting_value']
-            available_themes = get_available_themes()
+            available_themes = get_available_themes()            
             if theme not in available_themes:
                 raise forms.ValidationError(_('Theme must be one of %s') % ','.join(available_themes))
             else:
-                return theme    
+                return theme
+        else:
+            return self.cleaned_data['setting_value']
 
 class SettingAdmin(admin.ModelAdmin):       
     list_display = ('setting_name','setting_desc','setting_value')
-    form = SettingForm 
+    form = SettingForm
+    actions = None
 
 admin.site.register(Tags,TagsAdmin)
 admin.site.register(Category,CategoryAdmin)

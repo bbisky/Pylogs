@@ -85,9 +85,16 @@ def post(request,postname=None,postid=0):
             #update hits count
             post.hits = post.hits + 1
             post.save()
-            request.session['post_hits_%s' % post.id] = True;       
+            request.session['post_hits_%s' % post.id] = True;  
+        comments = Paginator(post.comments_set.filter(comment_approved__iexact=
+                                                            COMMENT_APPROVE_STATUS[1][0]).order_by('comment_date'),
+                                                            PAGE_SIZE
+                                  )
+        pageid = int(request.GET.get('page', 1))  
         return render_to_response(theme_template_url()+ '/blog/post.html',
-                                  {'post':post,'form':form,'msg':msg,'error':error},
+                                  {'post':post,'form':form,'msg':msg,'error':error,
+                                'comments':comments.page(pageid),
+                                'tab':'home'},
                                   context_instance=RequestContext(request))       
     else:
         raise Http404()

@@ -1,0 +1,242 @@
+/**
+ * SyntaxHighlighter
+ * http://alexgorbatchev.com/
+ *
+ * SyntaxHighlighter is donationware. If you are using it, please donate.
+ * http://alexgorbatchev.com/wiki/SyntaxHighlighter:Donate
+ *
+ * @version
+ * 2.0.320 (May 03 2009)
+ * 
+ * @copyright
+ * Copyright (C) 2004-2009 Alex Gorbatchev.
+ *
+ * @license
+ * This file is part of SyntaxHighlighter.
+ * 
+ * SyntaxHighlighter is free software: you can redistribute it and/or modify
+ * it under the terms of the GNU Lesser General Public License as published by
+ * the Free Software Foundation, either version 3 of the License, or
+ * (at your option) any later version.
+ * 
+ * SyntaxHighlighter is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ * GNU General Public License for more details.
+ * 
+ * You should have received a copy of the GNU General Public License
+ * along with SyntaxHighlighter.  If not, see <http://www.gnu.org/copyleft/lesser.html>.
+ */
+SyntaxHighlighter.brushes.Ruby = function()
+{
+	// Contributed by Erik Peterson.
+	
+	var keywords =	'alias and BEGIN begin break case class def define_method defined do each else elsif ' +
+					'END end ensure false for if in module new next nil not or raise redo rescue retry return ' +
+					'self super then throw true undef unless until when while yield';
+
+	var builtins =	'Array Bignum Binding Class Continuation Dir Exception FalseClass File::Stat File Fixnum Fload ' +
+					'Hash Integer IO MatchData Method Module NilClass Numeric Object Proc Range Regexp String Struct::TMS Symbol ' +
+					'ThreadGroup Thread Time TrueClass Rails';
+
+	this.regexList = [
+		{ regex: SyntaxHighlighter.regexLib.singleLinePerlComments,	css: 'comments' },		// one line comments
+		{ regex: SyntaxHighlighter.regexLib.doubleQuotedString,		css: 'string' },		// double quoted strings
+		{ regex: SyntaxHighlighter.regexLib.singleQuotedString,		css: 'string' },		// single quoted strings
+		{ regex: /[0-9]/g, css: 'numbers'},
+		{ regex: /\b[A-Z0-9_]+\b/g,									css: 'constants' },		// constants
+		{ regex: /:[a-z][A-Za-z0-9_]*/g,							css: 'color2' },		// symbols
+		{ regex: /(\$|@@|@)\w+/g,									css: 'variable bold' },	// $global, @instance, and @@class variables
+		{ regex: new RegExp(this.getKeywords(keywords), 'gm'),		css: 'keyword' },		// keywords
+		{ regex: new RegExp(this.getKeywords(builtins), 'gm'),		css: 'color1' },			// builtins
+		{ regex: /\/(.+)\/[igm]?/g,  css: 'regex'},
+		{ regex: /([A-Za-z]+::)+([A-Za-z]+)?/g,      css: 'constants' },
+		{ regex: /%(w|q|Q|W)(\{|\(|\{).+(\}|\)|\])/g, css: 'expr' }
+		];
+
+	this.forHtmlScript(SyntaxHighlighter.regexLib.aspScriptTags);
+};
+
+SyntaxHighlighter.brushes.Ruby.prototype	= new SyntaxHighlighter.Highlighter();
+SyntaxHighlighter.brushes.Ruby.aliases		= ['ruby', 'rails', 'ror'];
+
+.syntaxhighlighter
+{
+  font:normal 18px/40px monospace !important;
+	background-color: #eee !important;
+}
+
+/* Highlighed line number */
+.syntaxhighlighter .line.highlighted .number
+{
+	background-color: #ddd !important;
+	color: black !important;
+}
+
+/* Highlighed line */
+.syntaxhighlighter .line.highlighted.alt1 .content,
+.syntaxhighlighter .line.highlighted.alt2 .content
+{
+	background-color: #ddd !important;
+}
+
+/* Gutter line numbers */
+.syntaxhighlighter .line .number
+{
+	color: #aaa !important;
+}
+
+/* Add border to the lines */
+.syntaxhighlighter .line .content
+{
+	border-left: 2px solid #ccc !important;
+	color: #000 !important;
+}
+
+.syntaxhighlighter.printing .line .content 
+{
+	border: 0 !important;
+}
+
+/* First line */
+.syntaxhighlighter .line.alt1 .content
+{
+	background-color: #fafafa !important;
+}
+
+/* Second line */
+.syntaxhighlighter .line.alt2 .content
+{
+	background-color: #fafafa !important;
+}
+
+.syntaxhighlighter .line .content .block
+{
+/*  background: url(wrapping.png) 0 14px no-repeat !important;*/
+}
+
+.syntaxhighlighter .ruler
+{
+	color: silver !important;
+	background-color: #F8F8F8 !important;
+	border-left: 3px solid #6CE26C !important;
+}
+
+.syntaxhighlighter.nogutter .ruler
+{
+	border: 0 !important;
+}
+
+.syntaxhighlighter .toolbar
+{
+	background-color: #ddd !important;
+}
+
+.syntaxhighlighter .toolbar a
+{
+	color: #a0a0a0 !important;
+}
+
+.syntaxhighlighter .toolbar a:hover
+{
+	color: red !important;
+}
+
+/************************************
+ * Actual syntax highlighter colors.
+ ************************************/
+.syntaxhighlighter .plain,
+.syntaxhighlighter .plain a
+{ 
+	color: #000 !important;
+}
+
+.syntaxhighlighter .comments,
+.syntaxhighlighter .comments a
+{ 
+	color: #999988 !important;
+	font-style: italic !important;
+}
+
+.syntaxhighlighter .string,
+.syntaxhighlighter .string a
+{
+	color: #D81745 !important; 
+}
+
+.syntaxhighlighter .keyword
+{ 
+	font-weight: bold !important; 
+}
+
+.syntaxhighlighter .preprocessor 
+{ 
+	color: gray !important; 
+}
+
+.syntaxhighlighter .regex
+{
+  color: #159828;
+}
+
+.syntaxhighlighter .numbers
+{
+  color:#1C9898;
+}
+
+.syntaxhighlighter .expr
+{
+  color:#D81745;
+}
+
+.syntaxhighlighter .method
+{
+  font-style: italic;
+}
+
+.syntaxhighlighter .variable 
+{ 
+	color: #177F80 !important; 
+}
+
+.syntaxhighlighter .value
+{ 
+	color: red !important; 
+}
+
+.syntaxhighlighter .functions
+{ 
+	color: #990000 !important; 
+	font-weight:bold !important;
+}
+
+.syntaxhighlighter .constants
+{ 
+	color: #177F80 !important; 
+}
+
+.syntaxhighlighter .script
+{ 
+	background-color: yellow !important;
+}
+
+.syntaxhighlighter .color1,
+.syntaxhighlighter .color1 a
+{ 
+	color: #177F80 !important; 
+}
+
+.syntaxhighlighter .color2,
+.syntaxhighlighter .color2 a
+{ 
+	color: #960B73 !important; 
+}
+
+.syntaxhighlighter .color3,
+.syntaxhighlighter .color3 a
+{ 
+	color: red !important; 
+}
+
+/** end ugliness */
+

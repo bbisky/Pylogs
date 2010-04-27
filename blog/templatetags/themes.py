@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 from django.template import TemplateSyntaxError,TemplateDoesNotExist,Library
 from django.conf import settings
-from django.template.loader_tags import ExtendsNode
+from django.template.loader_tags import ExtendsNode,BlockNode
 from django.template.loader import select_template,get_template, get_template_from_string, find_template_source
 
 from config import theme
@@ -14,6 +14,8 @@ class ThemeExtendsNode(ExtendsNode):
         self.nodelist = nodelist
         self.parent_name, self.parent_name_expr = parent_name, parent_name_expr
         self.template_dirs = template_dirs
+        #django 1.2beta need blocks
+        self.blocks = dict([(n.name, n) for n in nodelist.get_nodes_by_type(BlockNode)])
         
     def get_parent(self, context):
         if self.parent_name_expr:

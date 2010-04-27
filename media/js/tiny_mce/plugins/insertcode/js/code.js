@@ -10,7 +10,7 @@ var CodeDialog = {
 		var code_content = document.forms[0].codeTextArea.value.replace(/</gi, "&lt;").replace(/\n/gi, "<br />");
 
 		tinyMCEPopup.restoreSelection();
-		tinyMCE.execCommand("mceInsertContent", false, ("<pre name=\"code\" class=\"" + code_name + "\">" + code_content + "</pre>"));
+		tinyMCE.execCommand("mceInsertContent", false, ("<pre class=\"brush:" + code_name + "\">" + code_content + "</pre>"));
 		tinyMCEPopup.close();
 	}
 };

@@ -6,18 +6,12 @@
 {% block script %}<script language="javascript" type="text/javascript" src="{%media_url%}/js/jquery.pack.js" ></script>
 <script type="text/javascript" src="{%media_url%}/js/common.js"></script>
 <script type="text/javascript" src="{%media_url%}/js/highslide.packed.js"></script>
-<script type="text/javascript" src="{%media_url%}/js/shCore.js"></script>
-<script type="text/javascript" src="{%media_url%}/js/shBrushes.js"></script>
-<link rel="stylesheet" href="{%media_url%}/css/SyntaxHighlighter.css" type="text/css" media="screen" >
-<link rel="stylesheet" href="{%media_url%}/css/code.css" type="text/css" media="screen" >
 <link rel="stylesheet" href="{%media_url%}/css/highslide.css" type="text/css" media="screen">
-<script language="javascript">
-window.onload = function(){
-dp.SyntaxHighlighter.BloggerMode();
-dp.SyntaxHighlighter.ClipboardSwf = '{%media_url%}/js/clipboard.swf';
-dp.SyntaxHighlighter.HighlightAll('code');
-}
+<script type="text/javascript" language="javascript">
+//for syntax highlight
+_media_root = '{%media_url%}';
 </script>
+<script type="text/javascript" src="{%media_url%}/js/syntax-highlight.js"></script>
 {%endblock%}
 {% block content %}
            <h2>
