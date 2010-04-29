@@ -29,7 +29,6 @@ class ModelTest(TestCase):
         
         self.page = Post.objects.create(title='page1',
                                         content='page content1',
-                                        #category=[self.category],
                                         post_name = 'page1',
                                         post_type = POST_TYPES[1][0],
                                         post_status = POST_STATUS[0][0], 
