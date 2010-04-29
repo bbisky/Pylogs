@@ -50,34 +50,7 @@ def post(request,postname=None,postid=0):
         post = get_object_or_404(Post,id__exact=postid,post_type__iexact='post')
     if post:
         #post back comment
-        if request.method == 'POST':
-            form = blog_forms.CommentForm(request.POST)
-            if request.POST.get('comment_vcode','').lower() != request.session.get('vcode'):
-                error = _('The confirmation code you entered was incorrect!')
-            else:                
-                if form.is_valid():
-                    #set a random string to session, refresh post failed
-                    request.session['vcode'] = random.random();
-                    if  post.comment_status ==  models.POST_COMMENT_STATUS[3][0]:  # comment no need approve
-                        comment_approved_status = models.COMMENT_APPROVE_STATUS[1][0]   # comment approved
-                    else:
-                        comment_approved_status = models.COMMENT_APPROVE_STATUS[0][0]   # comment unapproved
-                    
-                    comment = Comments(post = post,
-                               comment_author=form.cleaned_data['comment_author'],
-                               comment_author_email=form.cleaned_data['comment_author_email'],
-                               comment_author_url=form.cleaned_data['comment_author_url'],
-                               comment_author_IP= user_host_address(request),
-                               comment_content = form.cleaned_data['comment_content'],
-                               comment_approved=str(comment_approved_status),
-                               comment_agent=request.META['HTTP_USER_AGENT'])                   
-                    comment.save()
-                    #send mail to admin
-                    new_comment_mail(post.title,comment.comment_content)
-                    msg = _('Comment post successful!')
-                    form = blog_forms.CommentForm()                  
-        #if allow comment,show the comment form
-        elif (post.comment_status == models.POST_COMMENT_STATUS[0][0]) or (post.comment_status == models.POST_COMMENT_STATUS[3][0]) :
+        if (post.comment_status == models.POST_COMMENT_STATUS[0][0]) or (post.comment_status == models.POST_COMMENT_STATUS[3][0]) :
             form = blog_forms.CommentForm()
         else:
             form = None
@@ -111,29 +84,7 @@ def page(request,pagename):
             pagename = urlquote(pagename)
             page = get_object_or_404(Post,post_name__exact=pagename,post_type__iexact='page')            
         #post back comment
-        if request.method == 'POST':
-            form = blog_forms.CommentForm(request.POST)
-            if request.POST.get('comment_vcode','').lower() != request.session.get('vcode'):
-                error = _('The confirmation code you entered was incorrect!')
-            else:                
-                if form.is_valid():
-                    #set a random string to session, refresh post failed
-                    request.session['vcode'] = random.random();
-                    comment = Comments(post = page,
-                               comment_author=form.cleaned_data['comment_author'],
-                               comment_author_email=form.cleaned_data['comment_author_email'],
-                               comment_author_url=form.cleaned_data['comment_author_url'],
-                               comment_author_IP= user_host_address(request),
-                               comment_content = form.cleaned_data['comment_content'],
-                               comment_approved=str(models.COMMENT_APPROVE_STATUS[0][0]),
-                               comment_agent=request.META['HTTP_USER_AGENT'])                 
-                    comment.save()
-                    #send mail to admin
-                    new_comment_mail(page.title,comment.comment_content)            
-                    msg = _('Comment post successful!')
-                    form = blog_forms.CommentForm() 
-        #if allow comment,show the comment form
-        elif (page.comment_status == models.POST_COMMENT_STATUS[0][0])  or (page.comment_status == models.POST_COMMENT_STATUS[3][0]) :
+        if (page.comment_status == models.POST_COMMENT_STATUS[0][0])  or (page.comment_status == models.POST_COMMENT_STATUS[3][0]) :
             form = blog_forms.CommentForm()
         else:
             form = None
@@ -298,8 +249,8 @@ def user_host_address(request):
     """
     get user ip address
     """
-    if 'HTTP_X_FORWARDED_HOST' in request.META:
-        return request.META['HTTP_X_FORWARDED_HOST']
+    if 'HTTP_X_FORWARDED_FOR' in request.META:
+        return request.META['HTTP_X_FORWARDED_FOR']
     else:
         return request.META['REMOTE_ADDR']
                  
