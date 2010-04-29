@@ -54,14 +54,14 @@ class Tags(models.Model):
     reference_count = models.IntegerField(_('Reference count'),default=0,
                                           editable=False)
     
-    def save(self,force_insert=False, force_update=False):
+    def save(self,*args, **kwargs):
         #override save
         if not self.slug:
             #replace the special char of name as slug
             self.slug = self.name.replace(' ','-')
             self.slug = self.slug.replace(u'　','-')
             self.slug = self.slug.replace('.','')
-        super(Tags,self).save(force_insert,force_update)
+        super(Tags,self).save(*args, **kwargs)
     
     def __unicode__(self):
         return self.name
@@ -80,14 +80,14 @@ class Category(models.Model):
     desc = models.CharField(_('Description'),max_length=1024)
     enname = models.CharField(_('English name'),max_length=255,
                               unique=True,blank=True,help_text=_('Use as url'))
-    def save(self,force_insert=False, force_update=False):
+    def save(self,*args, **kwargs):
         #override save
         if not self.enname:
 	    #replace the space of title
             self.enname = self.name.replace(' ','-')
             self.enname = self.enname.replace(u'　','-')
             self.enname = self.enname.replace('.','')
-        super(Category,self).save(force_insert, force_update)
+        super(Category,self).save(*args, **kwargs)
         
     def __unicode__(self):
         return self.name
@@ -131,7 +131,7 @@ class Post(models.Model):
     tags = models.ManyToManyField(Tags,null=True,blank=True,
                                   verbose_name=_('Tags'),related_name='post_set')
     
-    def save(self,force_insert=False, force_update=False):
+    def save(self,*args, **kwargs):
         #override save
         if not self.post_name:
             #replace the space of title
@@ -139,7 +139,7 @@ class Post(models.Model):
             self.post_name = self.post_name.replace(u'　','-')
             self.post_name = self.post_name.replace('.','')
 
-        super(Post,self).save(force_insert, force_update)
+        super(Post,self).save(*args, **kwargs)
     
     def __unicode__(self):
         return self.title
@@ -206,8 +206,8 @@ class Comments(models.Model):
                                      max_length=255,null=True)
     user_id = models.IntegerField(_('UserId'),editable=False,null=True)
     
-    def save(self,force_insert=False, force_update=False):                     
-        super(Comments,self).save(force_insert, force_update)
+    def save(self,*args, **kwargs):                     
+        super(Comments,self).save(*args, **kwargs)
         #if comment is approved,update related post comment count
         if self.comment_approved == str(COMMENT_APPROVE_STATUS[1][0]):          
             self.post.comment_count = \

@@ -30,10 +30,10 @@ STATIC_PATH = './media'
 ADMIN_MEDIA_PREFIX = '/admin_media/'
 
 #Send Email settings
-EMAIL_HOST = 'smtp.sohu.com'
-EMAIL_HOST_PASSWORD = '456007'
-EMAIL_HOST_USER = 'bbisky'
-DEFAULT_FROM_EMAIL = 'bbisky@sohu.com'
+EMAIL_HOST = ''
+EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = ''
+DEFAULT_FROM_EMAIL = ''
 
 SECRET_KEY = 'zb2&a4g41snkt&*c92s=djl+*fcp((i85w(k&&)#$5j!+zz!!*'
 #setting session expire after half a hour.
@@ -67,14 +67,7 @@ INSTALLED_APPS = (
     'blog',
     'todo',
     'filemanager',
-    'wap',    
-    'tests',
- #   'debug_toolbar'
+    'wap', 
 )
-
-#DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False }
-
-
 VERSION = (1, 16, 'beta')	
 
-#INTERNAL_IPS = ('127.0.0.1',)
